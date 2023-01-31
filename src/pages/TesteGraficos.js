@@ -1,9 +1,13 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
+import MyAppBar from '../components/MyAppBar';
+import MyDrawer from '../components/MyDrawer';
 
 const TesteGraficos = ({ goToMainScreen, goToDeputiesByStateScreen }) => {
   return (
     <div>
+        {/* <MyAppBar /> */}
+        {/* <MyDrawer /> */}
         <h1>Teste Graficos</h1>
         <Plot
             data={[

@@ -1,5 +1,6 @@
 .containerComparisonSetupDeputiesScreen {
     width: 100%;
+    background-color: chartreuse;
 }
 
 .graficComparisonSetupDeputiesScreen {
@@ -10,7 +11,7 @@
     margin: 10px;
 }
 
-.header {
+.headerGraficBallsComparisonSetupDep {
     background-color: coral;
     display: flex;
     justify-content: space-around;
@@ -19,7 +20,9 @@
 .party {
     display: flex;
     margin-bottom: 10px;
-    background-color: gray;
+    border: solid 1px;
+    border-radius: 20px;
+    background-color: #fff;
 }
 
 .divBallsDeputiesComparisonSetupDep {

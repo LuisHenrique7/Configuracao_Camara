@@ -3,6 +3,13 @@ import './App.css';
 // React
 import { useState } from "react";
 
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 // data
 import { proporcaoDeputadosPorEstado } from './data/proporcaoDeputadosPorEstado';
 import { deputadosPorPartido } from './data/deputadosPorPartido';
@@ -16,6 +23,7 @@ import ComparisonSetupDeputiesScreen from './pages/ComparisonSetupDeputiesScreen
 import Drawer from './components/Drawer';
 import DeputiesListScreen from './pages/DeputiesListScreen';
 import DeputiesScreen from './pages/DeputiesScreen';
+import MyDrawer from './components/MyDrawer';
 
 const stages = [
   { id: 1, name: "main" },
@@ -64,7 +72,7 @@ function App() {
 
   return (
     <div className="App">
-      <Drawer
+      <MyDrawer
         goToMainScreen={goToMainScreen}
         goToTestScreen={goToTestScreen}
         goToDeputiesListScreen={goToDeputiesListScreen}

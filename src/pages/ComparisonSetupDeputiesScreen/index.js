@@ -7,7 +7,7 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido,  goToMainScreen, g
   return (
     <div className='containerComparisonSetupDeputiesScreen'>
         <h1>ComparisonSetupDeputiesScreen</h1>
-        <div className="header">
+        <div className="headerGraficBallsComparisonSetupDep">
             <h2>Partido</h2>
             <h2>Deputados eleitos em 2018</h2>
             <h2>Deputados eleitos em 2022</h2>
