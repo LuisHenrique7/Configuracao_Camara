@@ -1,0 +1,35 @@
+.containerComparisonSetupDeputiesScreen {
+    width: 100%;
+}
+
+.graficComparisonSetupDeputiesScreen {
+    background-color: blueviolet;
+}
+
+.graficBallsComparisonSetupDep {
+    margin: 10px;
+}
+
+.header {
+    background-color: coral;
+    display: flex;
+    justify-content: space-around;
+}
+
+.party {
+    display: flex;
+    margin-bottom: 10px;
+    background-color: gray;
+}
+
+.divBallsDeputiesComparisonSetupDep {
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.partyName {
+    width: 20%;
+    align-self: center;
+}
