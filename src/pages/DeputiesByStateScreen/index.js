@@ -15,7 +15,7 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, goToMainScreen, go
                     />
                     <p>texto</p>
                 </div>
-                <p>texto</p>  
+                texto
             </div>
             <div className='divGraficBarDepByState'>
                 <Plot
