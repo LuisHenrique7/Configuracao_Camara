@@ -3,6 +3,8 @@ import './App.css';
 // React
 import { useState } from "react";
 
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 // data
 import { proporcaoDeputadosPorEstado } from './data/proporcaoDeputadosPorEstado';
 import { deputadosPorPartido } from './data/deputadosPorPartido';
+import { senadoresEmExercicio } from './data/senadoresEmExercicio';
 
 // pages
 import TesteGraficos from './pages/TesteGraficos';
@@ -23,7 +26,9 @@ import ComparisonSetupDeputiesScreen from './pages/ComparisonSetupDeputiesScreen
 import Drawer from './components/Drawer';
 import DeputiesListScreen from './pages/DeputiesListScreen';
 import DeputiesScreen from './pages/DeputiesScreen';
+import SenatorsListScreen from './pages/SenatorsListScreen';
 import MyDrawer from './components/MyDrawer';
+import BoardDirectorsChamberScreen from './pages/BoardDirectorsChamberScreen';
 
 const stages = [
   { id: 1, name: "main" },
@@ -72,14 +77,46 @@ function App() {
 
   return (
     <div className="App">
-      <MyDrawer
-        goToMainScreen={goToMainScreen}
-        goToTestScreen={goToTestScreen}
-        goToDeputiesListScreen={goToDeputiesListScreen}
-        goToDeputiesByStateScreen={goToDeputiesByStateScreen}
-        goToDeputiesByPartyScreen={goToDeputiesByPartyScreen}
-        goToComparisonSetupDeputiesScreen={goToComparisonSetupDeputiesScreen}
-      />
+      <BrowserRouter>
+        <MyDrawer
+          goToMainScreen={goToMainScreen}
+          goToTestScreen={goToTestScreen}
+          goToDeputiesListScreen={goToDeputiesListScreen}
+          goToDeputiesByStateScreen={goToDeputiesByStateScreen}
+          goToDeputiesByPartyScreen={goToDeputiesByPartyScreen}
+          goToComparisonSetupDeputiesScreen={goToComparisonSetupDeputiesScreen}
+        />
+
+        <Routes>
+          <Route path="/" element={<MainScreen />} />
+          <Route path="/listaDeputados" element={<DeputiesListScreen />} />
+          <Route path="/deputadosPorEstado" element={
+            <DeputiesByStateScreen
+              proporcaoDeputadosPorEstado={proporcaoDeputadosPorEstado}
+            />}
+          />
+          <Route path="/mesaDiretoraCamara" element={
+            <BoardDirectorsChamberScreen
+            
+            />}
+          />
+          <Route path="/deputadosPorPartido" element={
+            <DeputiesByPartyScreen
+              deputadosPorPartido={deputadosPorPartido}
+            />}
+          />
+          <Route path="ComparisonSetupDeputies" element={
+            <ComparisonSetupDeputiesScreen
+              deputadosPorPartido={deputadosPorPartido}
+            />}
+          />
+          <Route path="listaSenadores" element={
+            <SenatorsListScreen
+              senadoresEmExercicio={senadoresEmExercicio}
+            />}
+          />
+        </Routes>
+      </BrowserRouter>
       {/* {proporcaoDeputadosPorEstado.deputies.map((dep, i) => (
                     <span key={i}>{dep}, </span>
       ))} */}
@@ -90,14 +127,15 @@ function App() {
       {/* <div style={{display: "flex", marginLeft: 50}}>
       {proporcaoDeputadosPorEstado.deputies.map((dep, i) => teste(dep))}
       </div> */}
-
+{/*
       {appStage === "main" && (
-        <MainScreen
-          goToTestScreen={goToTestScreen}
-          goToDeputiesByStateScreen={goToDeputiesByStateScreen}
-          goToDeputiesByPartyScreen={goToDeputiesByPartyScreen}
-          goToComparisonSetupDeputiesScreen={goToComparisonSetupDeputiesScreen}
-        />
+        <SenatorsListScreen senadoresEmExercicio={senadoresEmExercicio}/>
+        // <MainScreen
+        //   goToTestScreen={goToTestScreen}
+        //   goToDeputiesByStateScreen={goToDeputiesByStateScreen}
+        //   goToDeputiesByPartyScreen={goToDeputiesByPartyScreen}
+        //   goToComparisonSetupDeputiesScreen={goToComparisonSetupDeputiesScreen}
+        // />
       )}
       {appStage === "testeGrafico" && (
         <TesteGraficos
@@ -128,6 +166,8 @@ function App() {
           goToDeputiesByPartyScreen={goToDeputiesByPartyScreen}
         />
       )}
+*/} 
+      
       
       
     </div>

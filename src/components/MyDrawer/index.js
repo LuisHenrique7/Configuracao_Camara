@@ -1,4 +1,7 @@
 import * as React from 'react';
+
+import { Link } from "react-router-dom";
+
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -99,6 +102,87 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
+        <Divider />
+        <List>
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <Link to="/">
+                  <ListItemText primary="Tela Inicial" />
+                </Link>
+              </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <Link to="listaDeputados">
+                  <ListItemText primary="Deputados" />
+                </Link>
+              </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <Link to="mesaDiretoraCamara">
+                <ListItemText primary="Mesa Diretora da Câmara" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <Link to="deputadosPorEstado">
+                  <ListItemText primary="Deputados por Estado" />
+                </Link>
+              </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <Link to="deputadosPorPartido">
+                <ListItemText primary="Deputados por Partido" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <Link to="ComparisonSetupDeputies">
+                <ListItemText primary="Configurações por Eleição" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <Link to="listaSenadores">
+                <ListItemText primary="Senadores" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        </List>
         <Divider />
         <List>
           {buttonsName.map((text, index) => (

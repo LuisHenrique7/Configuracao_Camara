@@ -1,10 +1,10 @@
 .containerComparisonSetupDeputiesScreen {
     width: auto;
-    background-color: chartreuse;
+    background-color: #2f7958;
 }
 
 .graficComparisonSetupDeputiesScreen {
-    background-color: blueviolet;
+    
 }
 
 .graficBallsComparisonSetupDep {
@@ -12,7 +12,8 @@
 }
 
 .headerGraficBallsComparisonSetupDep {
-    background-color: coral;
+    /* background-color: coral; */
+    background-color: #FAA733;
     display: flex;
     justify-content: space-around;
 }

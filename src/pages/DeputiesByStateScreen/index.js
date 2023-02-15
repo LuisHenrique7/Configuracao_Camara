@@ -13,9 +13,7 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, goToMainScreen, go
                         array={proporcaoDeputadosPorEstado.deputies}
                         useColors={true}
                     />
-                    <p>texto</p>
                 </div>
-                texto
             </div>
             <div className='divGraficBarDepByState'>
                 <Plot
