@@ -3,10 +3,37 @@ import Plot from 'react-plotly.js';
 
 import "./styles.css";
 
-const DeputiesByPartyScreen = ({ deputadosPorPartido,  goToMainScreen, goToDeputiesByStateScreen }) => {
+import Ball from '../../components/Ball';
+
+const DeputiesByPartyScreen = ({ deputadosPorPartido }) => {
   return (
     <div className='containerDepByPartyScreen'>
-        <h1>DeputiesByPartyScreen</h1>
+        <h1>Deputados por Partido</h1>
+        <div>
+            <div className="headerGraficBallsDeputiesByParty">
+                <h2>Partido</h2>
+                <h2>Deputados eleitos</h2>
+            </div>
+        </div>
+        <div className='graficBallsDeputiesByParty'>
+            {deputadosPorPartido.parties.map((party, i) => (
+                <div className="party">
+                    <div className='partyName'>
+                        <h2>{party}</h2>
+                    </div>
+                    <div className='divBallsDeputiesByParty'>
+                        <Ball
+                            amount={deputadosPorPartido.deputies2022[i]}
+                            color='rgba(55,128,191,0.6)'
+                        />
+                        <p>{deputadosPorPartido.deputies2022[i]}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+
+
         <div className="graficDeputiesByParty">
             <Plot
                 data = {[
@@ -26,10 +53,6 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido,  goToMainScreen, goToDeput
                     }
                 } 
             />
-        </div>
-        <div className="buttons">
-            <button onClick={goToMainScreen}>Tela Principal</button>
-            <button onClick={goToDeputiesByStateScreen}>Deputados por Estado</button>
         </div>
     </div>
   )

@@ -3,10 +3,10 @@ import Plot from 'react-plotly.js';
 import Ball from '../../components/Ball';
 import "./styles.css";
 
-const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, goToMainScreen, goToDeputiesByPartyScreen }) => {
+const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
     return (
         <div className='containerDepByState'>
-            <h1>DeputiesByStateScreen</h1>
+            <h1>Deputados por Estado</h1>
             <div className='redSquare'>
                 <div className='ballsDeputiesDepByState'>
                     <Ball
@@ -34,10 +34,6 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, goToMainScreen, go
                         }
                     } 
                 />
-            </div>
-            <div className="buttons">
-                <button onClick={goToMainScreen}>Tela Principal</button>
-                <button onClick={goToDeputiesByPartyScreen}>Deputados por Partido</button>
             </div>
         </div>
     )

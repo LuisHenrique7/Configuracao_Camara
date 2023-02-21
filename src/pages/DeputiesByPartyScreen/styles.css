@@ -2,7 +2,42 @@
     width: 100%;
     height: 100%;
     background-color: #2f7958;
+    margin-top: 64px;
 }
+
+.headerGraficBallsDeputiesByParty{
+    /* background-color: coral; */
+    background-color: #FAA733;
+    display: flex;
+    justify-content: space-around;
+}
+.partyName {
+    width: 20%;
+    align-self: center;
+}
+
+.party {
+    display: flex;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-radius: 20px;
+    background-color: #fff;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.graficBallsDeputiesByParty {
+    margin: 10px;
+}
+
+.divBallsDeputiesByParty {
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
 
 .graficDeputiesByParty {
     

@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { proporcaoDeputadosPorEstado } from './data/proporcaoDeputadosPorEstado';
 import { deputadosPorPartido } from './data/deputadosPorPartido';
 import { senadoresEmExercicio } from './data/senadoresEmExercicio';
+import { mesaDiretoraCamara } from './data/mesaDiretoraCamara';
 
 // pages
 import TesteGraficos from './pages/TesteGraficos';
@@ -29,6 +30,7 @@ import DeputiesScreen from './pages/DeputiesScreen';
 import SenatorsListScreen from './pages/SenatorsListScreen';
 import MyDrawer from './components/MyDrawer';
 import BoardDirectorsChamberScreen from './pages/BoardDirectorsChamberScreen';
+import SenatorsByPartyScreen from './pages/SenatorsByPartyScreen';
 
 const stages = [
   { id: 1, name: "main" },
@@ -89,18 +91,18 @@ function App() {
 
         <Routes>
           <Route path="/" element={<MainScreen />} />
-          <Route path="/listaDeputados" element={<DeputiesListScreen />} />
-          <Route path="/deputadosPorEstado" element={
+          <Route path="listaDeputados" element={<DeputiesListScreen />} />
+          <Route path="deputadosPorEstado" element={
             <DeputiesByStateScreen
               proporcaoDeputadosPorEstado={proporcaoDeputadosPorEstado}
             />}
           />
-          <Route path="/mesaDiretoraCamara" element={
+          <Route path="mesaDiretoraCamara" element={
             <BoardDirectorsChamberScreen
-            
+              mesaDiretoraCamara={mesaDiretoraCamara}
             />}
           />
-          <Route path="/deputadosPorPartido" element={
+          <Route path="deputadosPorPartido" element={
             <DeputiesByPartyScreen
               deputadosPorPartido={deputadosPorPartido}
             />}
@@ -113,6 +115,11 @@ function App() {
           <Route path="listaSenadores" element={
             <SenatorsListScreen
               senadoresEmExercicio={senadoresEmExercicio}
+            />}
+          />
+          <Route path="senadoresPorPartido" element={
+            <SenatorsByPartyScreen
+              senatorsData={senadoresEmExercicio}
             />}
           />
         </Routes>

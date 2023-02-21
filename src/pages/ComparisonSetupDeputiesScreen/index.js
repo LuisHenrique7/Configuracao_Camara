@@ -3,10 +3,10 @@ import Plot from 'react-plotly.js';
 import Ball from '../../components/Ball';
 import './styles.css';
 
-const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido,  goToMainScreen, goToDeputiesByStateScreen, goToDeputiesByPartyScreen }) => {
+const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
   return (
     <div className='containerComparisonSetupDeputiesScreen'>
-        <h1>ComparisonSetupDeputiesScreen</h1>
+        <h1>Comparação entre as configurações da Câmara</h1>
         <div className="headerGraficBallsComparisonSetupDep">
             <h2>Partido</h2>
             <h2>Deputados eleitos em 2018</h2>
@@ -100,12 +100,6 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido,  goToMainScreen, g
                     }
                 } 
             />
-        </div>
-        
-        <div className="buttons">
-            <button onClick={goToMainScreen}>Tela Principal</button>
-            <button onClick={goToDeputiesByStateScreen}>Deputados por Estado</button>
-            <button onClick={goToDeputiesByPartyScreen}>Deputados por Partido</button>
         </div>
     </div>
   )

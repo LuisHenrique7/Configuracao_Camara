@@ -106,9 +106,6 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
         <List>
           <ListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
                 <Link to="/">
                   <ListItemText primary="Tela Inicial" />
                 </Link>
@@ -117,9 +114,6 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
 
           <ListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
                 <Link to="listaDeputados">
                   <ListItemText primary="Deputados" />
                 </Link>
@@ -128,9 +122,6 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
 
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <MailIcon />
-              </ListItemIcon>
               <Link to="mesaDiretoraCamara">
                 <ListItemText primary="Mesa Diretora da Câmara" />
               </Link>
@@ -139,9 +130,6 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
 
           <ListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
                 <Link to="deputadosPorEstado">
                   <ListItemText primary="Deputados por Estado" />
                 </Link>
@@ -150,9 +138,6 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
 
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <MailIcon />
-              </ListItemIcon>
               <Link to="deputadosPorPartido">
                 <ListItemText primary="Deputados por Partido" />
               </Link>
@@ -161,30 +146,37 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
 
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <MailIcon />
-              </ListItemIcon>
               <Link to="ComparisonSetupDeputies">
                 <ListItemText primary="Configurações por Eleição" />
               </Link>
             </ListItemButton>
           </ListItem>
         </List>
+
         <Divider />
+
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                <MailIcon />
-              </ListItemIcon>
               <Link to="listaSenadores">
                 <ListItemText primary="Senadores" />
               </Link>
             </ListItemButton>
           </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to="senadoresPorPartido">
+                <ListItemText primary="Senadores por Partido" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          
         </List>
+
         <Divider />
-        <List>
+
+        {/* <List>
           {buttonsName.map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={functionsNavigate[index]}>
@@ -208,7 +200,7 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
     </Box>
   );
