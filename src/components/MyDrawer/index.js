@@ -104,73 +104,73 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem disablePadding>
+          <Link to="/">
+            <ListItem disablePadding>
               <ListItemButton>
-                <Link to="/">
-                  <ListItemText primary="Tela Inicial" />
-                </Link>
+                <ListItemText primary="Tela Inicial" />
               </ListItemButton>
-          </ListItem>
+            </ListItem>
+          </Link>
 
-          <ListItem disablePadding>
+          <Link to="listaDeputados">
+            <ListItem disablePadding>
               <ListItemButton>
-                <Link to="listaDeputados">
-                  <ListItemText primary="Deputados" />
-                </Link>
+                <ListItemText primary="Deputados" />
               </ListItemButton>
-          </ListItem>
+            </ListItem>
+          </Link>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="mesaDiretoraCamara">
+          <Link to="mesaDiretoraCamara">
+            <ListItem disablePadding>
+              <ListItemButton>
                 <ListItemText primary="Mesa Diretora da Câmara" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding>
-              <ListItemButton>
-                <Link to="deputadosPorEstado">
-                  <ListItemText primary="Deputados por Estado" />
-                </Link>
               </ListItemButton>
-          </ListItem>
+            </ListItem>
+          </Link>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="deputadosPorPartido">
+          <Link to="deputadosPorEstado">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary="Deputados por Estado" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Link to="deputadosPorPartido">
+            <ListItem disablePadding>
+              <ListItemButton>
                 <ListItemText primary="Deputados por Partido" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
+              </ListItemButton>
+            </ListItem>
+          </Link>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="ComparisonSetupDeputies">
+          <Link to="ComparisonSetupDeputies">
+            <ListItem disablePadding>
+              <ListItemButton>
                 <ListItemText primary="Configurações por Eleição" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
 
         <Divider />
 
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="listaSenadores">
+          <Link to="listaSenadores">
+            <ListItem disablePadding>
+              <ListItemButton>
                 <ListItemText primary="Senadores" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
+              </ListItemButton>
+            </ListItem>
+          </Link>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="senadoresPorPartido">
+          <Link to="senadoresPorPartido">
+            <ListItem disablePadding>
+              <ListItemButton>
                 <ListItemText primary="Senadores por Partido" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
+              </ListItemButton>
+            </ListItem>
+          </Link>
           
         </List>
 
