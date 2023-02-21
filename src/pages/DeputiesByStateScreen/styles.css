@@ -1,3 +1,49 @@
+.containerDepByState {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f7958;
+    margin-top: 64px;
+}
+
+.headerGraficBallsDeputiesByState{
+    /* background-color: coral; */
+    background-color: #FAA733;
+    display: flex;
+    justify-content: space-around;
+}
+.partyNameDeputiesByStateScreen {
+    width: 20%;
+    align-self: center;
+}
+
+.partyDeputiesByStateScreen {
+    display: flex;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-radius: 20px;
+    background-color: #fff;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.graficBallsDeputiesByState {
+    margin: 10px;
+}
+
+.divBallsDeputiesByState {
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+
+
+
+
 .ballsDeputiesDepByState {
     align-self: center;
     justify-self: center;
@@ -7,14 +53,6 @@
     border-radius: 12px;
 }
 
-.containerDepByState {
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #2f7958;
-    margin-top: 64px;
-}
 
 .divGraficBarDepByState {
     margin: 20px;

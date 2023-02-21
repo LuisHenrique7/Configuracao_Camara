@@ -14,8 +14,8 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
         </div>
         <div className='graficBallsComparisonSetupDep'>
             {deputadosPorPartido.parties.map((party, i) => (
-                <div className="party">
-                    <div className='partyName'>
+                <div className="partyComparisonSetupDeputiesScreen">
+                    <div className='partyNameComparisonSetupDeputiesScreen'>
                         <h2>{party}</h2>
                         <p>Saldo: {deputadosPorPartido.deputies2022[i] - deputadosPorPartido.deputies2018[i]}</p>
                     </div>
@@ -97,6 +97,7 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
                         margin: {"t": 50, "b": 50, "l": 110, "r": 10},
                         showticklabels: true,
                         height: 1000,
+                        barmode: 'group',
                     }
                 } 
             />

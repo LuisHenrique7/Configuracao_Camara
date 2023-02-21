@@ -8,7 +8,7 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
     console.log(senatorsData.NomeParlamentar)
     console.log(senatorsData.SiglaPartidoParlamentar)
 
-    function onlyUnique(value, index, array) {
+    const onlyUnique = (value, index, array) => {
         return array.indexOf(value) === index;
     };
 
@@ -17,13 +17,14 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
     
     const partiesCount = [];
     for (var i = 0; i < parties.length; ++i) {
-        partiesCount.push(0);
+        partiesCount.push(senatorsData.SiglaPartidoParlamentar.filter(x => x==parties[i]).length);
+        // partiesCount.push(0);
         
-        for (var e = 0; e < senatorsData.SiglaPartidoParlamentar.length; ++e) {
-            if (senatorsData.SiglaPartidoParlamentar[e] === parties[i]) {
-                partiesCount[i]++;
-            }
-        };
+        // for (var e = 0; e < senatorsData.SiglaPartidoParlamentar.length; ++e) {
+        //     if (senatorsData.SiglaPartidoParlamentar[e] === parties[i]) {
+        //         partiesCount[i]++;
+        //     }
+        // };
     };
     console.log(partiesCount);
 

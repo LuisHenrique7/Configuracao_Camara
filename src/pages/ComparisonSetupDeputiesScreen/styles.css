@@ -19,7 +19,7 @@
     justify-content: space-around;
 }
 
-.party {
+.partyComparisonSetupDeputiesScreen {
     display: flex;
     margin-bottom: 10px;
     border: solid 1px;
@@ -34,7 +34,7 @@
     margin-bottom: 10px;
 }
 
-.partyName {
+.partyNameComparisonSetupDeputiesScreen {
     width: 20%;
     align-self: center;
 }

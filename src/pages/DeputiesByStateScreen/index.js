@@ -7,6 +7,31 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
     return (
         <div className='containerDepByState'>
             <h1>Deputados por Estado</h1>
+            <div>
+            <div className="headerGraficBallsDeputiesByState">
+                <h2>Estado</h2>
+                <h2>Deputados eleitos</h2>
+            </div>
+            </div>
+            <div className='graficBallsDeputiesByState'>
+                {proporcaoDeputadosPorEstado.states.map((state, i) => (
+                    <div className="partyDeputiesByStateScreen">
+                        <div className='partyNameDeputiesByStateScreen'>
+                            <h2>{state}</h2>
+                        </div>
+                        <div className='divBallsDeputiesByState'>
+                            <Ball
+                                amount={proporcaoDeputadosPorEstado.deputies[i]}
+                                color='rgba(55,128,191,0.6)'
+                            />
+                            <p>{proporcaoDeputadosPorEstado.deputies[i]}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+
+
             <div className='redSquare'>
                 <div className='ballsDeputiesDepByState'>
                     <Ball

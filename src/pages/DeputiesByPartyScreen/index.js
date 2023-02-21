@@ -17,8 +17,8 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido }) => {
         </div>
         <div className='graficBallsDeputiesByParty'>
             {deputadosPorPartido.parties.map((party, i) => (
-                <div className="party">
-                    <div className='partyName'>
+                <div className="partyDeputiesByPartyScreen">
+                    <div className='partyNameDeputiesByPartyScreen'>
                         <h2>{party}</h2>
                     </div>
                     <div className='divBallsDeputiesByParty'>

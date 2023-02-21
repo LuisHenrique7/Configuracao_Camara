@@ -164,6 +164,14 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
             </ListItem>
           </Link>
 
+          <Link to="mesaDiretoraSenado">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary="Mesa Diretora do Senado" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
           <Link to="senadoresPorPartido">
             <ListItem disablePadding>
               <ListItemButton>

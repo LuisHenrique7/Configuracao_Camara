@@ -17,6 +17,7 @@ import { proporcaoDeputadosPorEstado } from './data/proporcaoDeputadosPorEstado'
 import { deputadosPorPartido } from './data/deputadosPorPartido';
 import { senadoresEmExercicio } from './data/senadoresEmExercicio';
 import { mesaDiretoraCamara } from './data/mesaDiretoraCamara';
+import { mesaDiretoraSenado } from './data/mesaDiretoraSenado';
 
 // pages
 import TesteGraficos from './pages/TesteGraficos';
@@ -31,6 +32,7 @@ import SenatorsListScreen from './pages/SenatorsListScreen';
 import MyDrawer from './components/MyDrawer';
 import BoardDirectorsChamberScreen from './pages/BoardDirectorsChamberScreen';
 import SenatorsByPartyScreen from './pages/SenatorsByPartyScreen';
+import BoardDirectorsSenateScreen from './pages/BoardDirectorsSenateScreen';
 
 const stages = [
   { id: 1, name: "main" },
@@ -115,6 +117,11 @@ function App() {
           <Route path="listaSenadores" element={
             <SenatorsListScreen
               senadoresEmExercicio={senadoresEmExercicio}
+            />}
+          />
+          <Route path="mesaDiretoraSenado" element={
+            <BoardDirectorsSenateScreen
+              mesaDiretoraSenado={mesaDiretoraSenado}
             />}
           />
           <Route path="senadoresPorPartido" element={
