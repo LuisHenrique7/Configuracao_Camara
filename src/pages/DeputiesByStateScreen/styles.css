@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     background-color: #2f7958;
-    margin-top: 64px;
 }
 
 .headerGraficBallsDeputiesByState{
@@ -12,6 +11,8 @@
     background-color: #FAA733;
     display: flex;
     justify-content: space-around;
+    margin: 10px 0px;
+    padding: 5px 0px;
 }
 .partyNameDeputiesByStateScreen {
     width: 20%;

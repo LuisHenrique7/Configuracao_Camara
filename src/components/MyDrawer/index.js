@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-import { Link } from "react-router-dom";
-
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -21,9 +18,43 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
+const pages = {
+  '/': "Tela Inicial",
+  'exemplo': "Exemplo"
+};
+const pagesDeputies = {
+  'mesaDiretoraCamara': "Mesa Diretora da Câmara",
+  'listaDeputados': "Lista de Deputados",
+  'deputadosPorEstado': "Deputados por Estado",
+  'deputadosPorPartido': "Deputados por Partido",
+  'ComparisonSetupDeputies': "Configuração da Câmara nas Eleições",
+};
+const pagesSenators = {
+  'listaSenadores': "Lista de Senadores",
+  'mesaDiretoraSenado': "Mesa Diretora do Senado",
+  'senadoresPorPartido': "Senadores por Partido",
+};
+
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  }),
+);
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -51,11 +82,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goToDeputiesByStateScreen, goToDeputiesByPartyScreen, goToComparisonSetupDeputiesScreen }) => {
+export default function PersistentDrawerLeft({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const buttonsName = ["Tela Inicial", "Teste", "Deputados", "Deputados por Estado", "Deputados por Partido", "Configurações por Eleição"];
-  const functionsNavigate = [goToMainScreen, goToTestScreen, goToDeputiesListScreen, goToDeputiesByStateScreen, goToDeputiesByPartyScreen, goToComparisonSetupDeputiesScreen];
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,114 +133,45 @@ const MyDrawer = ({ goToMainScreen, goToTestScreen, goToDeputiesListScreen, goTo
         </DrawerHeader>
         <Divider />
         <List>
-          <Link to="/">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Tela Inicial" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="listaDeputados">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Deputados" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="mesaDiretoraCamara">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Mesa Diretora da Câmara" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="deputadosPorEstado">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Deputados por Estado" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="deputadosPorPartido">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Deputados por Partido" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="ComparisonSetupDeputies">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Configurações por Eleição" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List>
-
-        <Divider />
-
-        <List>
-          <Link to="listaSenadores">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Senadores" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="mesaDiretoraSenado">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Mesa Diretora do Senado" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-
-          <Link to="senadoresPorPartido">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary="Senadores por Partido" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          
-        </List>
-
-        <Divider />
-
-        {/* <List>
-          {buttonsName.map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton onClick={functionsNavigate[index]}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
+          {Object.keys(pages).map((key) => (
+            <Link to={key} >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemText primary={pages[key]} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
+          {Object.keys(pagesDeputies).map((key) => (
+            <Link to={key} >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemText primary={pagesDeputies[key]} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
           ))}
-        </List> */}
+        </List>
+        <Divider />
+        <List>
+          {Object.keys(pagesSenators).map((key) => (
+            <Link to={key} >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemText primary={pagesSenators[key]} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          ))}
+        </List>
       </Drawer>
+      <Main open={open}>
+        <DrawerHeader />
+        {children}
+      </Main>
     </Box>
   );
 }
-
-export default MyDrawer

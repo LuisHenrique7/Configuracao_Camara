@@ -3,7 +3,7 @@ import Plot from 'react-plotly.js';
 import MyAppBar from '../components/MyAppBar';
 import MyDrawer from '../components/MyDrawer';
 
-const TesteGraficos = ({ goToMainScreen, goToDeputiesByStateScreen }) => {
+const TesteGraficos = () => {
   return (
     <div>
         {/* <MyAppBar /> */}
@@ -42,10 +42,6 @@ const TesteGraficos = ({ goToMainScreen, goToDeputiesByStateScreen }) => {
                 }
             }
         />
-        <div className="buttons">
-            <button onClick={goToMainScreen}>Tela Principal</button>
-            <button onClick={goToDeputiesByStateScreen}>Deputados por Estado</button>
-        </div>
     </div>
   )
 }

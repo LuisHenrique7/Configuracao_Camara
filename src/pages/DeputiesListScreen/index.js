@@ -30,7 +30,7 @@ const DeputiesListScreen = () => {
         <div>
             {deputieSelected === false ? (
                 <div>
-                    <h1>DeputiesListScreen</h1>
+                    <h1>Lista de Deputados</h1>
                     <button onClick={() => {setDeputieSelected(true)}}>Deputado</button>
                     {loading && <p>Carregando dados...</p>}
                     {error && <p>{error}</p>}

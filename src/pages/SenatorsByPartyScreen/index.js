@@ -29,8 +29,8 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
     console.log(partiesCount);
 
     return (
-        <div className='containerDepByPartyScreen'>
-            <h1>SenatorsByPartyScreen</h1>
+        <div className='containerSenatorsByParty'>
+            <h1>Senadores por Partido</h1>
             <div className="graficSenatorsByParty">
                 <Plot
                     data = {[
