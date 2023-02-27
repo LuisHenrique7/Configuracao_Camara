@@ -51,8 +51,10 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
 
     return (
         <div className='containerBoardDirectorsSenateScreen'>
-            <div><h1>Mesa Diretora do Senado</h1></div>
-            <h2>Presidente</h2>
+            <div className='headerBoardDirectorsSenateScreen'>
+                <h1>Mesa Diretora do Senado</h1>
+            </div>
+            <h2 className='subHeaderBoardDirectorsSenateScreen'>Presidente</h2>
             <div className="presidentAndViceDivBoardDirectorsSenateScreen">
                 <div className='boxDivBoardDirectorsSenateScreen'>
                     <p>Nome: {presidents[0].name}</p>
@@ -61,7 +63,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                     <p>Título: {presidents[0].title}</p>
                 </div>
             </div>
-            <h2>Vice-Presidentes</h2>
+            <h2 className='subHeaderBoardDirectorsSenateScreen'>Vice-Presidentes</h2>
             <div className="presidentAndViceDivBoardDirectorsSenateScreen">
                 {presidents.map((dep) => {
                     if (dep.title !== "PRESIDENTE") return (
@@ -75,7 +77,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                 })}
             </div>
             <div>
-                <h2>Secretários</h2>
+                <h2 className='subHeaderBoardDirectorsSenateScreen'>Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsSenateScreen">
                     {secretaries.map((dep) => (
                         <div className='boxDivBoardDirectorsSenateScreen'>
@@ -88,7 +90,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                 </div>
             </div>
             <div>
-                <h2>Suplentes de Secretários</h2>
+                <h2 className='subHeaderBoardDirectorsSenateScreen'>Suplentes de Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsSenateScreen">
                     {substitutes.map((dep) => (
                         <div className='boxDivBoardDirectorsSenateScreen'>

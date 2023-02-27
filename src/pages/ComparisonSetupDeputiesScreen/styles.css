@@ -6,6 +6,13 @@
     flex-direction: column;
 }
 
+.headerComparisonSetupDeputiesScreen {
+    background-color: silver;
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 10px;
+}
+
 .divViewChoiceComparisonSetupDeputies {
     margin: 5px 0px;
     display: flex;

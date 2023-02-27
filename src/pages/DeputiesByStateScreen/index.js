@@ -17,10 +17,12 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
 
     return (
         <div className='containerDepByState'>
-            <h1>Deputados por Estado</h1>
-            <div>
+            <div className='headerDeputiesByState'>
+                <h1>Deputados por Estado</h1>
+            </div>
+            <div className='divViewChoiceDeputiesByState'>
                 <p>Escolha o tipo de visualização:</p>
-                <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
                     <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Exibição Geral da Câmara" />

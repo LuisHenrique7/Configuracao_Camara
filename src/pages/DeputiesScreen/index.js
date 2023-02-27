@@ -25,7 +25,9 @@ const DeputiesScreen = () => {
     
     return (
         <div>
-            <div><h1>DeputiesScreen</h1></div>
+            <div>
+                <h1>DeputiesScreen</h1>
+            </div>
             {loading && <p>Carregando dados...</p>}
             {error && <p>{error}</p>}
             {deputieData && (

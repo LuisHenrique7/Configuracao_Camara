@@ -17,10 +17,12 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido }) => {
 
     return (
         <div className='containerDepByPartyScreen'>
-            <h1>Deputados por Partido</h1>
-            <div>
+            <div className='headerDeputiesByParty'>
+                <h1>Deputados por Partido</h1>
+            </div>
+            <div className='divViewChoiceDeputiesByParty'>
                 <p>Escolha o tipo de visualização:</p>
-                <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
                     <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Barras" />

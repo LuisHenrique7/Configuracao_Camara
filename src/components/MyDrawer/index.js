@@ -26,8 +26,8 @@ const pages = {
   'exemplo': "Exemplo"
 };
 const pagesDeputies = {
-  'mesaDiretoraCamara': "Mesa Diretora da Câmara",
   'listaDeputados': "Lista de Deputados",
+  'mesaDiretoraCamara': "Mesa Diretora da Câmara",
   'deputadosPorEstado': "Deputados por Estado",
   'deputadosPorPartido': "Deputados por Partido",
   'ComparisonSetupDeputies': "Configuração da Câmara nas Eleições",

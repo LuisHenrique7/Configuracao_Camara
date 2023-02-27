@@ -17,7 +17,9 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
 
     return (
         <div className='containerComparisonSetupDeputiesScreen'>
-            <h1>Comparação entre as configurações da Câmara</h1>
+            <div className='headerComparisonSetupDeputiesScreen'>
+                <h1>Comparação entre as configurações da Câmara</h1>
+            </div>
             <div className='divViewChoiceComparisonSetupDeputies'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>

@@ -2,6 +2,32 @@
     width: 100%;
     height: 100%;
     background-color: #2f7958;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerDeputiesByParty {
+    background-color: silver;
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 10px;
+}
+
+.divViewChoiceDeputiesByParty {
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: silver;
+    padding: 10px 5px;
+    min-width: 60%;
+    align-self: center;
+}
+
+.divViewChoiceDeputiesByParty p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
 }
 
 .headerGraficBallsDeputiesByParty{
@@ -41,5 +67,8 @@
 
 
 .graficDeputiesByParty {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     
 }

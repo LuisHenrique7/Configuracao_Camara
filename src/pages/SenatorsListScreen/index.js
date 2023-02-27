@@ -5,6 +5,7 @@ import ReactPaginate from 'react-paginate';
 import './styles.css';
 
 import { useFetch } from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 const url = "https://dadosabertos.camara.leg.br/api/v2/deputados?itens=5&ordem=ASC&ordenarPor=nome";
 
@@ -151,6 +152,7 @@ const Items = ({ currentItems, data }) => {
                     <p>Partido: {data.SiglaPartidoParlamentar[item]}</p>
                     <p>UF Mandato: {data.UfMandatoParlamentar[item]}</p>
                     <p>Participação: {data.DescricaoParticipacao[item]}</p>
+                    <Link to={`senador/${item}`}>Detalhes</Link>
                 </div>
             ))}
         </div>

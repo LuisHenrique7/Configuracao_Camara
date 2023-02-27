@@ -1,7 +1,66 @@
 .containerSenatorsByParty {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     height: 100%;
+    background-color: #0095da;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerSenatorsByParty {
     background-color: silver;
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 10px;
+}
+
+.divViewChoiceSenatorsByParty {
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: silver;
+    padding: 10px 5px;
+    min-width: 60%;
+    align-self: center;
+}
+
+.divViewChoiceSenatorsByParty p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+}
+
+.headerGraficBallsSenatorsByParty{
+    /* background-color: coral; */
+    background-color: #FAA733;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px;
+    padding: 5px 0px;
+}
+.partyNameSenatorsByPartyScreen {
+    width: 20%;
+    align-self: center;
+}
+
+.partySenatorsByPartyScreen {
+    display: flex;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-radius: 20px;
+    background-color: #fff;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.graficBallsSenatorsByParty {
+    margin: 10px;
+}
+
+.divBallsSenatorsByParty {
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    margin-bottom: 10px;
 }

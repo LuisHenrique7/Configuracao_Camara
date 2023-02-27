@@ -67,8 +67,10 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
 
     return (
         <div className='containerBoardDirectorsChamberScreen'>
-            <div><h1>Mesa Diretora da Câmara dos Deputados</h1></div>
-            <h2>Presidente</h2>
+            <div className='headerBoardDirectorsChamber'>
+                <h1>Mesa Diretora da Câmara dos Deputados</h1>
+            </div>
+            <h2 className='subHeaderBoardDirectorsChamber'>Presidente</h2>
             <div className="presidentAndViceDivBoardDirectorsChamberScreen">
                 <div className='boxDivBoardDirectorsChamberScreen'>
                     <p>Nome: {presidents[presidents.length-1].name}</p>
@@ -78,7 +80,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                     <p>Título: {presidents[presidents.length-1].title}</p>
                 </div>
             </div>
-            <h2>Vice-Presidentes</h2>
+            <h2 className='subHeaderBoardDirectorsChamber'>Vice-Presidentes</h2>
             <div className="presidentAndViceDivBoardDirectorsChamberScreen">
                 {presidents.map((dep) => {
                     if (dep.title !== "Presidente") return (
@@ -93,7 +95,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                 })}
             </div>
             <div>
-                <h2>Secretários</h2>
+            <h2 className='subHeaderBoardDirectorsChamber'>Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsChamberScreen">
                     {secretaries.map((dep) => (
                         <div className='boxDivBoardDirectorsChamberScreen'>
@@ -107,7 +109,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                 </div>
             </div>
             <div>
-                <h2>Suplentes de Secretários</h2>
+                <h2 className='subHeaderBoardDirectorsChamber'>Suplentes de Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsChamberScreen">
                     {substitutes.map((dep) => (
                         <div className='boxDivBoardDirectorsChamberScreen'>

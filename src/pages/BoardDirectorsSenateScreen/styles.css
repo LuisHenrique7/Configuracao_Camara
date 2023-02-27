@@ -1,8 +1,23 @@
 .containerBoardDirectorsSenateScreen {
-    background-color: #2f7958;
+    background-color: #0095da;
     width: 100%;
     height: 100%;
 }
+
+.headerBoardDirectorsSenateScreen {
+    background-color: silver;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.subHeaderBoardDirectorsSenateScreen {
+    background-color: #FAA733;
+    width: 100%;
+    padding: 5px 0px;
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+
 .presidentAndViceDivBoardDirectorsSenateScreen {
     display: flex;
     flex-direction: row;

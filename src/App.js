@@ -34,6 +34,7 @@ import BoardDirectorsChamberScreen from './pages/BoardDirectorsChamberScreen';
 import SenatorsByPartyScreen from './pages/SenatorsByPartyScreen';
 import BoardDirectorsSenateScreen from './pages/BoardDirectorsSenateScreen';
 import Example from './pages/Example';
+import SenatorScreen from './pages/SenatorScreen';
 
 
 
@@ -79,6 +80,11 @@ function App() {
             <Route path="senadoresPorPartido" element={
               <SenatorsByPartyScreen
                 senatorsData={senadoresEmExercicio}
+              />}
+            />
+            <Route path="listaSenadores/senador/:id" element={
+              <SenatorScreen
+                senadoresEmExercicio={senadoresEmExercicio}
               />}
             />
             <Route path="exemplo" element={
