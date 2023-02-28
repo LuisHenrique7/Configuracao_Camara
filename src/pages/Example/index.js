@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import './styles.css';
 
 const pages = ['/1', '/2', '/3'];
 
@@ -18,7 +19,8 @@ const Example = () => {
   // }, [value]);
 
   return (
-    <div>
+    <div className='containerExample'>
+      <div className='titleExampleScreen'><h1>Example Screen</h1></div>
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
         <Tabs value={value} onChange={handleChange} centered>
           <Tab label="Item One" />

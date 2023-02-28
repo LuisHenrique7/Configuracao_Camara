@@ -82,9 +82,10 @@
 .divGraficBarDepByState {
     margin: 20px;
 }
-.redSquare {
+.generalViewDeputiesByState {
     align-items: center;
     align-content: center;
     display: flex;
     flex-flow: column;
+    margin: 10px 0px;
 }

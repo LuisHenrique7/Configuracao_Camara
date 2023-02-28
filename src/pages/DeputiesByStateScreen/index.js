@@ -56,7 +56,32 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
             )}
 
             {valueVisualization === 1 && (
-                <div className='redSquare'>
+                <div className='generalViewDeputiesByState'>
+                    <div>
+                        <Plot
+                            data = {[
+                                {
+                                    type: "pie",
+                                    values: proporcaoDeputadosPorEstado.deputies,
+                                    labels: proporcaoDeputadosPorEstado.states,
+                                    textinfo: "label+percent",
+                                    textposition: "inside",
+                                    automargin: true,
+                                }
+                            ]}
+                              
+                            layout = {
+                                {
+                                    title: "Percentagem de Deputados eleitos por Estado",
+                                    height: 700,
+                                    width: 700,
+                                    margin: {"t": 50, "b": 50, "l": 50, "r": 50},
+                                    showlegend: false,
+                                }
+                            }
+                           
+                        />
+                    </div>
                     <div className='ballsDeputiesDepByState'>
                         <Ball
                             array={proporcaoDeputadosPorEstado.deputies}

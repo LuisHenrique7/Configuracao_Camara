@@ -1,0 +1,9 @@
+.containerExample {
+    background-color: aquamarine;
+    width:  100%;
+}
+
+.titleExampleScreen {
+    width: 100%;
+    display: flex;
+}

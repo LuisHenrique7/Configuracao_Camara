@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 // data
 import { proporcaoDeputadosPorEstado } from './data/proporcaoDeputadosPorEstado';
 import { deputadosPorPartido } from './data/deputadosPorPartido';
+import { deputadosEmExercicio } from './data/deputadosEmExercicio';
 import { senadoresEmExercicio } from './data/senadoresEmExercicio';
 import { mesaDiretoraCamara } from './data/mesaDiretoraCamara';
 import { mesaDiretoraSenado } from './data/mesaDiretoraSenado';
@@ -46,7 +47,16 @@ function App() {
         <MyDrawer>
           <Routes>
             <Route path="/" element={<MainScreen />} />
-            <Route path="listaDeputados" element={<DeputiesListScreen />} />
+            <Route path="listaDeputados" element={
+              <DeputiesListScreen
+                deputadosEmExercicio={deputadosEmExercicio}
+              />}
+            />
+            <Route path="listaDeputados/deputado/:id" element={
+              <DeputiesScreen
+                deputadosEmExercicio={deputadosEmExercicio}
+              />}
+            />
             <Route path="mesaDiretoraCamara" element={
               <BoardDirectorsChamberScreen
                 mesaDiretoraCamara={mesaDiretoraCamara}

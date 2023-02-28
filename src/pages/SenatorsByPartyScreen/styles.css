@@ -64,3 +64,10 @@
     align-self: flex-start;
     margin-bottom: 10px;
 }
+
+.graficSenatorsByParty {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}

@@ -1,69 +1,89 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import DeputiesScreen from '../DeputiesScreen';
+import ReactPaginate from 'react-paginate';
 
 import { useFetch } from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
-const url = "https://dadosabertos.camara.leg.br/api/v2/deputados?itens=5&ordem=ASC&ordenarPor=nome";
+import DeputiesScreen from '../DeputiesScreen';
 
-const DeputiesListScreen = () => {
-    const [deputieSelected, setDeputieSelected] = useState(false);
+const DeputiesListScreen = ({ deputadosEmExercicio }) => {
+    console.log(Object.keys(deputadosEmExercicio.nome))
+    const items = Object.keys(deputadosEmExercicio.nome);
+    // for (let i = 0; i < deputadosEmExercicio.nome.length; i++) {
+    //     items.push(i)
+    // };
 
-    // const [deputiesData, setDeputiesData] = useState([]);
+    const [itemOffset, setItemOffset] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    const [currentItems, setCurrentItems] = useState(items.slice(itemOffset, endOffset));
+    const [pageCount, setPageCount] = useState(0);
 
-    const { data: items, loading, error } = useFetch(url);
+    useEffect(() => {
+        // Fetch items from another resources.
+        const endOffset = itemOffset + itemsPerPage;
+        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        setCurrentItems(items.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(items.length / itemsPerPage));
+      }, [itemOffset, itemsPerPage]);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const res = await fetch(url);
-
-    //         const data = await res.json();
-
-    //         console.log(data);
-    //         setDeputiesData(data);
-    //     }
-
-    //     fetchData();
-    // }, []);
-    
+    const handlePageClick = (event) => {
+        const newOffset = event.selected * itemsPerPage % items.length;
+        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+        setItemOffset(newOffset);
+    };
+    console.log(items)
+    console.log(deputadosEmExercicio.nome[items[0]])
     return (
-        <div>
-            {deputieSelected === false ? (
-                <div>
-                    <div>
-                        <h1>Lista de Deputados</h1>
-                    </div>
-                    <button onClick={() => {setDeputieSelected(true)}}>Deputado</button>
-                    {loading && <p>Carregando dados...</p>}
-                    {error && <p>{error}</p>}
-                    <ul>
-                        {items &&
-                        items.dados.map((deputie) => (
-                            <li key={deputie.id}>
-                                <img src={deputie.urlFoto} />
-                                <p>Nome: {deputie.nome}</p>
-                                <p>Partido: {deputie.siglaPartido}</p>
-                                <p>UF: {deputie.siglaUf}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    {/* <ul>
-                        {deputiesData.dados.map((deputie) => (
-                            <li key={deputie.id}>
-                                <img src={deputie.urlFoto} />
-                                <p>Nome: {deputie.nome}</p>
-                                <p>Partido: {deputie.siglaPartido}</p>
-                                <p>UF: {deputie.siglaUf}</p>
-                            </li>
-                        ))}
-                    </ul> */}
-                </div>) : (
-                <div>
-                    <DeputiesScreen />
-                </div>)
-            }
+        <div className='containerDeputiesListScreen'>
+            <div className='headerDeputiesList'>
+                <h1>Lista de Deputados em Exercício</h1>
+            </div>
+            <Items currentItems={currentItems} data={deputadosEmExercicio}/>
+
+            <div className='containerButtonsPaginationDeputiesList'>
+                <ReactPaginate
+                    nextLabel="Próximo >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="< Anterior"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                />
+            </div>
         </div>
     )
 }
 
 export default DeputiesListScreen
+
+const Items = ({ currentItems, data }) => {
+    return (
+        <div className="deputiesListItems">
+            {currentItems && currentItems.map((item) => (
+                <div className="deputiesItem">
+                    <p>Nome: {data.nome[item]}</p>
+                    <p>Partido: {data.siglaPartido[item]}</p>
+                    <p>UF: {data.siglaUf[item]}</p>
+                    {/* <p>Foto: {data.urlFoto[item]}</p> */}
+                    <Link to={`deputado/${item}`}>Detalhes</Link>
+                </div>
+            ))}
+        </div>
+    );
+}
