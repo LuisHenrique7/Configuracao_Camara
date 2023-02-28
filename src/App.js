@@ -65,6 +65,7 @@ function App() {
             <Route path="deputadosPorEstado" element={
               <DeputiesByStateScreen
                 proporcaoDeputadosPorEstado={proporcaoDeputadosPorEstado}
+                deputadosEmExercicio={deputadosEmExercicio}
               />}
             />
             <Route path="deputadosPorPartido" element={
