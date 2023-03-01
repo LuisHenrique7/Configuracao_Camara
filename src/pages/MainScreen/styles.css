@@ -1,4 +1,23 @@
 .container-main {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAA733;
+}
+
+.headerMainScreen {
+    background-color: silver;
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+}
+
+.divAboutMainScreen {
+    background-color: #FFF;
+    width: 80%;
+    border-radius: 10px;
+    text-align: justify;
+    padding: 20px;
 }

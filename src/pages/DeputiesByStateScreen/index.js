@@ -9,11 +9,65 @@ import "./styles.css";
 
 import Ball from '../../components/Ball';
 
-const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
+const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercicio }) => {
     const [valueVisualization, setValueVisualization] = useState(0);
     const handleChangeValueVisualization = (event, newValueVisualization) => {
         setValueVisualization(newValueVisualization);
     };
+
+    const namesByState = [];
+    const namesStates = [];
+
+    const labelsGraficSunburst = [].concat(proporcaoDeputadosPorEstado.states);
+    const parentsGraficSunburst = [];
+    const valuesGraficSunburst = [].concat(proporcaoDeputadosPorEstado.deputies);
+
+    for (var s = 0; s < proporcaoDeputadosPorEstado.states.length; ++s) {
+        parentsGraficSunburst.push("");
+    };
+
+    for (var s = 0; s < Object.keys(deputadosEmExercicio.nome).length; ++s) {
+        let name = deputadosEmExercicio.nome[s];
+        let state = deputadosEmExercicio.siglaUf[s];
+        labelsGraficSunburst.push(name);
+        parentsGraficSunburst.push(state);
+        valuesGraficSunburst.push(1);
+    };
+
+
+    for (var s = 0; s < proporcaoDeputadosPorEstado.states.length; ++s) {
+        namesByState.push(0);
+        namesStates.push(0);
+    };
+
+    for (var s = 0; s < Object.keys(deputadosEmExercicio.nome).length; ++s) {
+        let name = deputadosEmExercicio.nome[s];
+        let state = deputadosEmExercicio.siglaUf[s];
+        let index = proporcaoDeputadosPorEstado.states.indexOf(state);
+        namesByState[index] = namesByState[index] + 1;
+        namesStates[index] = namesStates[index] + 1;
+    };
+
+    
+    console.log(proporcaoDeputadosPorEstado.deputies.reduce((a, b) => {
+        return a + b;
+      }, 0));
+    console.log("-----------------------------------------")
+    console.log(labelsGraficSunburst);
+    console.log(parentsGraficSunburst);
+    console.log(valuesGraficSunburst);
+    console.log("-----------------------------------------")
+    console.log("namesStates", namesStates)
+
+    // https://flexiple.com/javascript/flatten-array-javascript/
+    // let flatArrayNamesByState = [].concat.apply([], namesByState);
+    // flatArrayNamesByState = [].concat.apply([], flatArrayNamesByState);
+    // console.log(flatArrayNamesByState);
+
+    // let flatArrayNamesStates = [].concat.apply([], namesStates);
+    // flatArrayNamesStates = [].concat.apply([], flatArrayNamesStates);
+    // console.log(flatArrayNamesStates);
+
 
     return (
         <div className='containerDepByState'>
@@ -25,7 +79,8 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
                     <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
                         <Tab label="Exibição com Bolinhas" />
-                        <Tab label="Exibição Geral da Câmara" />
+                        <Tab label="Gráfico de Pizza" />
+                        <Tab label="Gráfico de Sunburst" />
                         <Tab label="Gráfico de Barras" />
                     </Tabs>
                 </Box>
@@ -82,16 +137,69 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado }) => {
                            
                         />
                     </div>
-                    <div className='ballsDeputiesDepByState'>
-                        <Ball
-                            array={proporcaoDeputadosPorEstado.deputies}
-                            useColors={true}
+                    {/* <div>
+                        <Plot
+                            data = {[
+                                {
+                                    "type": "sunburst",
+                                    "labels": ["Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
+                                    "parents": ["", "", "", "Seth", "Seth", "", "", "Awan", "" ],
+                                    "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
+                                    "leaf": {"opacity": 0.4},
+                                    "marker": {"line": {"width": 2}},
+                                    "branchvalues": 'total'
+                                }
+                            ]}
+                              
+                            layout = {
+                                {
+                                    title: "Percentagem de Deputados eleitos por Estado",
+                                    height: 700,
+                                    width: 700,
+                                    margin: {"t": 50, "b": 50, "l": 50, "r": 50},
+                                    showlegend: false,
+                                }
+                            }
+                           
                         />
-                    </div>
+                    </div> */}
+                </div>
+            )}
+            
+            {valueVisualization === 2 && (
+                <div className='divSunburstGraficDeputiesByState'>
+                    <Plot
+                        data = {[
+                            {
+                                "type": "sunburst",
+                                "labels": labelsGraficSunburst,
+                                "parents": parentsGraficSunburst,
+                                "values":  valuesGraficSunburst,
+                                //"leaf": {"opacity": 0.4},
+                                "marker": {"line": {"width": 2}},
+                                "branchvalues": 'total',
+                                textinfo: "label+percent",
+                                textposition: "inside",
+                                automargin: true,
+                                maxdepth: 2,
+                            }
+                        ]}
+                            
+                        layout = {
+                            {
+                                title: "Percentagem de Deputados eleitos por Estado",
+                                height: 1200,
+                                width: 1200,
+                                margin: {"t": 50, "b": 50, "l": 50, "r": 50},
+                                showlegend: false,
+                            }
+                        }
+                        
+                    />
                 </div>
             )}
 
-            {valueVisualization === 2 && (
+            {valueVisualization === 3 && (
                 <div className='divGraficBarDepByState'>
                     <Plot
                         data = {[

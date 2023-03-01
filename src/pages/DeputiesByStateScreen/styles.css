@@ -82,10 +82,17 @@
 .divGraficBarDepByState {
     margin: 20px;
 }
+
 .generalViewDeputiesByState {
     align-items: center;
     align-content: center;
+    width: 100%;
     display: flex;
     flex-flow: column;
     margin: 10px 0px;
+}
+
+.divSunburstGraficDeputiesByState {
+    width: 100%;
+    margin: 20px 0px;
 }
