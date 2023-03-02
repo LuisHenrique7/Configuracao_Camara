@@ -4,8 +4,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './styles.css';
+import { deputadosEmExercicio } from '../../data/deputadosEmExercicio';
+import Foto from '../../data/pictures/deputiesPictures/Albuquerque_220538.jpg';
 
 const pages = ['/1', '/2', '/3'];
+const nameExample = "Abilio Brunini";
+const idExample = 220593;
 
 const Example = () => {
   const [value, setValue] = React.useState(0);
@@ -42,7 +46,15 @@ const Example = () => {
         </div> */}
       </Box>
       {value === 0 && (
-        <div>item 1</div>
+        <div>
+          <p>item 1</p>
+          <div>
+            <img src={require(`../../data/pictures/deputiesPictures/${nameExample}_${idExample}.jpg`)} />
+          </div>
+          <div>
+            <img src={Foto}/>
+          </div>
+        </div>
       )}
       {value === 1 && (
         <div>item 2</div>

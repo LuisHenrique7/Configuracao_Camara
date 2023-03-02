@@ -77,11 +77,16 @@ const Items = ({ currentItems, data }) => {
         <div className="deputiesListItems">
             {currentItems && currentItems.map((item) => (
                 <div className="deputiesItem">
-                    <p>Nome: {data.nome[item]}</p>
-                    <p>Partido: {data.siglaPartido[item]}</p>
-                    <p>UF: {data.siglaUf[item]}</p>
-                    {/* <p>Foto: {data.urlFoto[item]}</p> */}
-                    <Link to={`deputado/${item}`}>Detalhes</Link>
+                    <div className='deputiePictureDeputiesList'>
+                        <img src={require(`../../data/pictures/deputiesPictures/${data.nome[item]}_${data.id[item]}.jpg`)} />
+                    </div>
+                    <div className='deputieInfoDeputiesList'>
+                        <p>Nome: {data.nome[item]}</p>
+                        <p>Partido: {data.siglaPartido[item]}</p>
+                        <p>UF: {data.siglaUf[item]}</p>
+                        {/* <p>Foto: {data.urlFoto[item]}</p> */}
+                        <Link to={`deputado/${item}`}>Detalhes</Link>
+                    </div>
                 </div>
             ))}
         </div>
