@@ -79,11 +79,16 @@ const Items = ({ currentItems, data }) => {
         <div className="senatorsListItems">
             {currentItems && currentItems.map((item) => (
                 <div className="senatorsItem">
-                    <p>Nome: {data.NomeParlamentar[item]}</p>
-                    <p>Partido: {data.SiglaPartidoParlamentar[item]}</p>
-                    <p>UF Mandato: {data.UfMandatoParlamentar[item]}</p>
-                    <p>Participação: {data.DescricaoParticipacao[item]}</p>
-                    <Link to={`senador/${item}`}>Detalhes</Link>
+                    <div className='senatorPictureSenatorsList'>
+                        <img src={require(`../../data/pictures/senatorsPictures/${data.NomeParlamentar[item]}.jpg`)} />
+                    </div>
+                    <div className='senatorInfoSenatorsList'>
+                        <p>Nome: {data.NomeParlamentar[item]}</p>
+                        <p>Partido: {data.SiglaPartidoParlamentar[item]}</p>
+                        <p>UF Mandato: {data.UfMandatoParlamentar[item]}</p>
+                        <p>Participação: {data.DescricaoParticipacao[item]}</p>
+                        <Link to={`senador/${item}`}>Detalhes</Link>
+                    </div>
                 </div>
             ))}
         </div>

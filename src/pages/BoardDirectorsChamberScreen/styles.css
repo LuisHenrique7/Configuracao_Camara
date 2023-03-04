@@ -52,7 +52,7 @@
 }
 
 .deputieInfoBoardDirectorsChamberScreen {
-    text-align: justify;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;

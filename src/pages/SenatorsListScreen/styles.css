@@ -27,9 +27,34 @@
     border-radius: 12px;
     background-color: #FFF;
     margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
 }
 
+.senatorPictureSenatorsList {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 20px;
+    align-items: center;
+    /* background-color: aquamarine; */
+}
+
+.senatorPictureSenatorsList img {
+    width: 30%;
+    height: 80%;
+}
+
+.senatorInfoSenatorsList {
+    width: 40%;
+    height: 100%;
+    text-align: justify;
+    /* background-color: pink */
+}
 
 
 .containerButtonsPaginationSenatorsList {
