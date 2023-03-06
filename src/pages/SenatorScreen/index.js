@@ -11,20 +11,38 @@ const SenatorScreen = ({ senadoresEmExercicio }) => {
             <div className='headerSenatorScreen'>
                 <h1>Informações do Senador</h1>
             </div>
-            <p>Nome: {senadoresEmExercicio.NomeParlamentar[id]}</p>
-            <p>Nome Completo: {senadoresEmExercicio.NomeCompletoParlamentar[id]}</p>
-            <p>Email: {senadoresEmExercicio.EmailParlamentar[id]}</p>
-            <p>UF do Parlamentar: {senadoresEmExercicio.UfParlamentar[id]}</p>
-            <p>Partido: {senadoresEmExercicio.SiglaPartidoParlamentar[id]}</p>
-            <p>Nome do Bloco: {senadoresEmExercicio.NomeBloco[id]}</p>
-            <p>UF do Mandato do Parlamentar: {senadoresEmExercicio.UfMandatoParlamentar[id]}</p>
-            <p>Data de início da Primeira Legislatura: {senadoresEmExercicio.DataInicioPrimeiraLegislatura[id]}</p>
-            <p>Data final da Primeira Legislatura: {senadoresEmExercicio.DataFimPrimeiraLegislatura[id]}</p>
-            <p>Data de início da Segunda Legislatura: {senadoresEmExercicio.DataInicioSegundaLegislatura[id]}</p>
-            <p>Data final da Segunda Legislatura: {senadoresEmExercicio.DataFimSegundaLegislatura[id]}</p>
-            <p>Participação: {senadoresEmExercicio.DescricaoParticipacao[id]}</p>
-            <p>1º Suplente: {senadoresEmExercicio['1º Suplente'][id]}</p>
-            <p>2º Suplente: {senadoresEmExercicio['2º Suplente'][id]}</p>
+            <div className='senatorDataSenatorScreen'>
+                <div className='senatorPictureSenatorScreen'>
+                    <img src={require(`../../data/pictures/senatorsPictures/${senadoresEmExercicio.NomeParlamentar[id]}.jpg`)} />
+                </div>
+                <div className='senatorInfoSenatorScreen'>
+                    <h4>Nome: {senadoresEmExercicio.NomeParlamentar[id]}</h4>
+                    <h5>Nome Completo: {senadoresEmExercicio.NomeCompletoParlamentar[id]}</h5>
+                    <h5>Email: {senadoresEmExercicio.EmailParlamentar[id]}</h5>
+                    <h5>UF do Parlamentar: {senadoresEmExercicio.UfParlamentar[id]}</h5>
+                    <h5>Partido: {senadoresEmExercicio.SiglaPartidoParlamentar[id]}</h5>
+                    
+                    <h5>UF do Mandato do Parlamentar: {senadoresEmExercicio.UfMandatoParlamentar[id]}</h5>
+                    
+                    <h5>Participação: {senadoresEmExercicio.DescricaoParticipacao[id]}</h5>
+                    
+                </div>
+            </div>
+            <div className='divDateInfoSenatorScreen'>
+                <div style={{textAlign:'left'}}>
+                    <h5>Data de início da Primeira Legislatura: {senadoresEmExercicio.DataInicioPrimeiraLegislatura[id]}</h5>
+                    <h5>Data final da Primeira Legislatura: {senadoresEmExercicio.DataFimPrimeiraLegislatura[id]}</h5>
+                </div>
+                <div style={{textAlign:'left'}}>
+                    <h5>Data de início da Segunda Legislatura: {senadoresEmExercicio.DataInicioSegundaLegislatura[id]}</h5>
+                    <h5>Data final da Segunda Legislatura: {senadoresEmExercicio.DataFimSegundaLegislatura[id]}</h5>
+                </div>
+            </div>
+            <div className='divAditionalInfoSenatorScreen'>
+                <h5>Nome do Bloco: {senadoresEmExercicio.NomeBloco[id]}</h5>
+                <h5>1º Suplente: {senadoresEmExercicio['1º Suplente'][id]}</h5>
+                <h5>2º Suplente: {senadoresEmExercicio['2º Suplente'][id]}</h5>
+            </div>
         </div>
     )
 }

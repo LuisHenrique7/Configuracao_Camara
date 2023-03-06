@@ -46,14 +46,21 @@
 
 .senatorPictureSenatorsList img {
     width: 30%;
-    height: 80%;
+    height: 100%;
 }
 
 .senatorInfoSenatorsList {
     width: 40%;
     height: 100%;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     /* background-color: pink */
+}
+
+.senatorInfoSenatorsList h4 {
+    font-weight: bold;
 }
 
 

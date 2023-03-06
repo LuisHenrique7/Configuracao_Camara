@@ -83,10 +83,10 @@ const Items = ({ currentItems, data }) => {
                         <img src={require(`../../data/pictures/senatorsPictures/${data.NomeParlamentar[item]}.jpg`)} />
                     </div>
                     <div className='senatorInfoSenatorsList'>
-                        <p>Nome: {data.NomeParlamentar[item]}</p>
-                        <p>Partido: {data.SiglaPartidoParlamentar[item]}</p>
-                        <p>UF Mandato: {data.UfMandatoParlamentar[item]}</p>
-                        <p>Participação: {data.DescricaoParticipacao[item]}</p>
+                        <h4>Nome: {data.NomeParlamentar[item]}</h4>
+                        <h5>Partido: {data.SiglaPartidoParlamentar[item]}</h5>
+                        <h5>UF Mandato: {data.UfMandatoParlamentar[item]}</h5>
+                        <h6>Participação: {data.DescricaoParticipacao[item]}</h6>
                         <Link to={`senador/${item}`}>Detalhes</Link>
                     </div>
                 </div>

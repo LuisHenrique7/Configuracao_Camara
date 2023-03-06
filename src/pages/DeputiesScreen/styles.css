@@ -44,5 +44,12 @@
     width: 40%;
     height: 100%;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     /* background-color: pink */
+}
+
+.deputieInfoDeputieScreen h4 {
+    font-weight: bold;
 }

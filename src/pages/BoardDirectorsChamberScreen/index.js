@@ -83,10 +83,10 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                         <img src={require(`../../data/pictures/deputiesPictures/${presidents[presidents.length-1].name}_${presidents[presidents.length-1].id}.jpg`)} />
                     </div>
                     <div className='deputieInfoBoardDirectorsChamberScreen'>
-                        <p>Nome: {presidents[presidents.length-1].name}</p>
-                        <p>Partido: {presidents[presidents.length-1].party}</p>
-                        <p>UF: {presidents[presidents.length-1].UF}</p>
-                        <p>Título: {presidents[presidents.length-1].title}</p>
+                        <h4>Nome: {presidents[presidents.length-1].name}</h4>
+                        <h5>Partido: {presidents[presidents.length-1].party}</h5>
+                        <h5>UF: {presidents[presidents.length-1].UF}</h5>
+                        <h5>Título: {presidents[presidents.length-1].title}</h5>
                     </div>
                 </div>
             </div>
@@ -99,49 +99,87 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                                 <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
                             </div>
                             <div className='deputieInfoBoardDirectorsChamberScreen'>
-                                <p>Nome: {dep.name}</p>
-                                <p>Partido: {dep.party}</p>
-                                <p>UF: {dep.UF}</p>
-                                <p>Título: {dep.title}</p>
+                                <h4>Nome: {dep.name}</h4>
+                                <h5>Partido: {dep.party}</h5>
+                                <h5>UF: {dep.UF}</h5>
+                                <h5>Título: {dep.title}</h5>
                             </div>
                         </div>
                     );
                 })}
             </div>
             <div>
-            <h2 className='subHeaderBoardDirectorsChamber'>Secretários</h2>
+                <h2 className='subHeaderBoardDirectorsChamber'>Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsChamberScreen">
-                    {secretaries.map((dep) => (
-                        <div className='boxDivBoardDirectorsChamberScreen'>
-                            <div className='deputiePictureBoardDirectorsChamberScreen'>
-                                <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                    {secretaries.map((dep, i) => {
+                        if (i <= 1) return (
+                            <div className='boxDivBoardDirectorsChamberScreen'>
+                                <div className='deputiePictureBoardDirectorsChamberScreen'>
+                                    <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                                </div>
+                                <div className='deputieInfoBoardDirectorsChamberScreen'>
+                                    <h4>Nome: {dep.name}</h4>
+                                    <h5>Partido: {dep.party}</h5>
+                                    <h5>UF: {dep.UF}</h5>
+                                    <h5>Título: {dep.title}</h5>
+                                </div>
                             </div>
-                            <div className='deputieInfoBoardDirectorsChamberScreen'>
-                                <p>Nome: {dep.name}</p>
-                                <p>Partido: {dep.party}</p>
-                                <p>UF: {dep.UF}</p>
-                                <p>Título: {dep.title}</p>
+                        )}
+                    )}
+                </div>
+                <div className="boxDivSecretariesBoardDirectorsChamberScreen">
+                    {secretaries.map((dep, i) => {
+                        if (i > 1) return (
+                            <div className='boxDivBoardDirectorsChamberScreen'>
+                                <div className='deputiePictureBoardDirectorsChamberScreen'>
+                                    <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                                </div>
+                                <div className='deputieInfoBoardDirectorsChamberScreen'>
+                                    <h4>Nome: {dep.name}</h4>
+                                    <h5>Partido: {dep.party}</h5>
+                                    <h5>UF: {dep.UF}</h5>
+                                    <h5>Título: {dep.title}</h5>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )}
+                    )}
                 </div>
             </div>
             <div>
                 <h2 className='subHeaderBoardDirectorsChamber'>Suplentes de Secretários</h2>
                 <div className="boxDivSecretariesBoardDirectorsChamberScreen">
-                    {substitutes.map((dep) => (
-                        <div className='boxDivBoardDirectorsChamberScreen'>
-                            <div className='deputiePictureBoardDirectorsChamberScreen'>
-                                <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                    {substitutes.map((dep, i) => {
+                        if (i <= 1) return (
+                            <div className='boxDivBoardDirectorsChamberScreen'>
+                                <div className='deputiePictureBoardDirectorsChamberScreen'>
+                                    <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                                </div>
+                                <div className='deputieInfoBoardDirectorsChamberScreen'>
+                                    <h4>Nome: {dep.name}</h4>
+                                    <h5>Partido: {dep.party}</h5>
+                                    <h5>UF: {dep.UF}</h5>
+                                    <h5>Título: {dep.title}</h5>
+                                </div>
                             </div>
-                            <div className='deputieInfoBoardDirectorsChamberScreen'>
-                                <p>Nome: {dep.name}</p>
-                                <p>Partido: {dep.party}</p>
-                                <p>UF: {dep.UF}</p>
-                                <p>Título: {dep.title}</p>
+                        )}
+                    )}
+                </div>
+                <div className="boxDivSecretariesBoardDirectorsChamberScreen">
+                    {substitutes.map((dep, i) => {
+                        if (i > 1) return (
+                            <div className='boxDivBoardDirectorsChamberScreen'>
+                                <div className='deputiePictureBoardDirectorsChamberScreen'>
+                                    <img src={require(`../../data/pictures/deputiesPictures/${dep.name}_${dep.id}.jpg`)} />
+                                </div>
+                                <div className='deputieInfoBoardDirectorsChamberScreen'>
+                                    <h4>Nome: {dep.name}</h4>
+                                    <h5>Partido: {dep.party}</h5>
+                                    <h5>UF: {dep.UF}</h5>
+                                    <h5>Título: {dep.title}</h5>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )}
+                    )}
                 </div>
             </div>
         </div>
