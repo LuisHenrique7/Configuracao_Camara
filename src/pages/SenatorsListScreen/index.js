@@ -8,10 +8,11 @@ import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
 
 const SenatorsListScreen = ({ senadoresEmExercicio }) => {
-    const items = [];
-    for (let i = 0; i < senadoresEmExercicio.NomeParlamentar.length; i++) {
-        items.push(i)
-    };
+    const items = Object.keys(senadoresEmExercicio.NomeParlamentar);
+    // const items = [];
+    // for (let i = 0; i < senadoresEmExercicio.NomeParlamentar.length; i++) {
+    //     items.push(i)
+    // };
 
     // const items = senadoresEmExercicio.NomeParlamentar;
     const [itemOffset, setItemOffset] = useState(0);

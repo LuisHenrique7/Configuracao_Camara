@@ -75,8 +75,8 @@ export default DeputiesListScreen
 const Items = ({ currentItems, data }) => {
     return (
         <div className="deputiesListItems">
-            {currentItems && currentItems.map((item) => (
-                <div className="deputiesItem">
+            {currentItems && currentItems.map((item, i) => (
+                <div className="deputiesItem" key={i}>
                     <div className='deputiePictureDeputiesList'>
                         <img src={require(`../../data/pictures/deputiesPictures/${data.nome[item]}_${data.id[item]}.jpg`)} />
                     </div>

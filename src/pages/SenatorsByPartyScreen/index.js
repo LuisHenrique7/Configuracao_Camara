@@ -23,12 +23,17 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
         return array.indexOf(value) === index;
     };
 
-    const parties = senatorsData.SiglaPartidoParlamentar.filter(onlyUnique);
+    const partyList = []
+    for (var i = 0; i < Object.keys(senatorsData.SiglaPartidoParlamentar).length; ++i) {
+        partyList.push(senatorsData.SiglaPartidoParlamentar[i])
+    };
+
+    const parties = partyList.filter(onlyUnique);
     console.log(parties);
     
     const partiesCount = [];
     for (var i = 0; i < parties.length; ++i) {
-        partiesCount.push(senatorsData.SiglaPartidoParlamentar.filter(x => x==parties[i]).length);
+        partiesCount.push(partyList.filter(x => x==parties[i]).length);
         // partiesCount.push(0);
         
         // for (var e = 0; e < senatorsData.SiglaPartidoParlamentar.length; ++e) {
@@ -38,6 +43,22 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
         // };
     };
     console.log(partiesCount);
+
+    const labelsGraficSunburst = [].concat(parties);
+    const parentsGraficSunburst = [];
+    const valuesGraficSunburst = [].concat(partiesCount);
+
+    for (var s = 0; s < parties.length; ++s) {
+        parentsGraficSunburst.push("");
+    };
+
+    for (var s = 0; s < Object.keys(senatorsData.NomeParlamentar).length; ++s) {
+        let name = senatorsData.NomeParlamentar[s];
+        let party = senatorsData.SiglaPartidoParlamentar[s];
+        labelsGraficSunburst.push(name);
+        parentsGraficSunburst.push(party);
+        valuesGraficSunburst.push(1);
+    };
 
     return (
         <div className='containerSenatorsByParty'>
@@ -49,6 +70,8 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
                     <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
                         <Tab label="Exibição com Bolinhas" />
+                        <Tab label="Gráfico de Pizza" />
+                        <Tab label="Gráfico de Sunburst" />
                         <Tab label="Gráfico de Barras" />
                     </Tabs>
                 </Box>
@@ -82,25 +105,92 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
             )}
 
             {valueVisualization === 1 && (
-                <div className="graficSenatorsByParty">
+                <div className='generalViewDeputiesByState'>
+                    <div>
+                        <Plot
+                            data = {[
+                                {
+                                    type: "pie",
+                                    values: partiesCount,
+                                    labels: parties,
+                                    textinfo: "label+percent",
+                                    textposition: "inside",
+                                    automargin: true,
+                                }
+                            ]}
+                              
+                            layout = {
+                                {
+                                    title: "Percentagem de Senadores eleitos por Partido",
+                                    height: 800,
+                                    width: 800,
+                                    margin: {"t": 50, "b": 50, "l": 50, "r": 50},
+                                    showlegend: false,
+                                }
+                            }
+                           
+                        />
+                    </div>
+                </div>
+            )}
+
+            {valueVisualization === 2 && (
+                <div className='divSunburstGraficDeputiesByState'>
                     <Plot
                         data = {[
                             {
-                                type: "bar",
-                                x: partiesCount,
-                                y: parties,
-                                orientation: "h",
+                                "type": "sunburst",
+                                "labels": labelsGraficSunburst,
+                                "parents": parentsGraficSunburst,
+                                "values":  valuesGraficSunburst,
+                                //"leaf": {"opacity": 0.4},
+                                "marker": {"line": {"width": 2}},
+                                "branchvalues": 'total',
+                                textinfo: "label+percent",
+                                textposition: "inside",
+                                automargin: true,
+                                maxdepth: 2,
                             }
                         ]}
+                            
                         layout = {
                             {
-                                title: "Quantidades de Deputados eleitos por Partido",
-                                showgrid: true,
-                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
-                                showticklabels: true
+                                title: "Senadores eleitos por Partido",
+                                height: 1200,
+                                width: 1200,
+                                margin: {"t": 50, "b": 50, "l": 50, "r": 50},
+                                showlegend: false,
                             }
-                        } 
+                        }
+                        
                     />
+                </div>
+            )}
+
+            {valueVisualization === 3 && (
+                <div className="graficSenatorsByParty">
+                    <div>
+                        <Plot
+                            data = {[
+                                {
+                                    type: "bar",
+                                    x: partiesCount,
+                                    y: parties,
+                                    orientation: "h",
+                                }
+                            ]}
+                            layout = {
+                                {
+                                    title: "Quantidades de Senadores eleitos por Partido",
+                                    showgrid: true,
+                                    width: 700,
+                                    height: 700,
+                                    margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                    showticklabels: true
+                                }
+                            } 
+                        />
+                    </div>
                 </div>
             )}
         </div>

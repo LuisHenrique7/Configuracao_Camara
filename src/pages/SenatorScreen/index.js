@@ -18,14 +18,25 @@ const SenatorScreen = ({ senadoresEmExercicio }) => {
                 <div className='senatorInfoSenatorScreen'>
                     <h4>Nome: {senadoresEmExercicio.NomeParlamentar[id]}</h4>
                     <h5>Nome Completo: {senadoresEmExercicio.NomeCompletoParlamentar[id]}</h5>
-                    <h5>Email: {senadoresEmExercicio.EmailParlamentar[id]}</h5>
+                    {/* <h5>Email: {senadoresEmExercicio.EmailParlamentar[id]}</h5> */}
                     <h5>UF do Parlamentar: {senadoresEmExercicio.UfParlamentar[id]}</h5>
                     <h5>Partido: {senadoresEmExercicio.SiglaPartidoParlamentar[id]}</h5>
-                    
-                    <h5>UF do Mandato do Parlamentar: {senadoresEmExercicio.UfMandatoParlamentar[id]}</h5>
-                    
+                    <h5>UF do Mandato do Parlamentar: {senadoresEmExercicio.UfMandatoParlamentar[id]}</h5>  
                     <h5>Participação: {senadoresEmExercicio.DescricaoParticipacao[id]}</h5>
-                    
+                    <h5>Nome do Bloco:<br/> {senadoresEmExercicio.NomeBloco[id]}</h5>
+                </div>
+            </div>
+            <div className='divPhonesSenatorScreen'>
+                <h4>Contato do Senador:</h4>
+                <div style={{marginBottom: '30px', border: '1px solid', padding: '20px', borderRadius: '10px'}}>
+                    <h4>Email:</h4>
+                    <h5>{senadoresEmExercicio.EmailParlamentar[id]}</h5>
+                </div>
+                <div style={{border: '1px solid', padding: '20px', borderRadius: '10px'}}>
+                    <h4>Telefones:</h4>
+                    {senadoresEmExercicio.NumeroTelefone[id].map((tel, i) => (
+                        <h5>Telefone {i+1}: (61) {tel}</h5>
+                    ))}
                 </div>
             </div>
             <div className='divDateInfoSenatorScreen'>
@@ -39,7 +50,7 @@ const SenatorScreen = ({ senadoresEmExercicio }) => {
                 </div>
             </div>
             <div className='divAditionalInfoSenatorScreen'>
-                <h5>Nome do Bloco: {senadoresEmExercicio.NomeBloco[id]}</h5>
+                {/* <h5>Nome do Bloco: {senadoresEmExercicio.NomeBloco[id]}</h5> */}
                 <h5>1º Suplente: {senadoresEmExercicio['1º Suplente'][id]}</h5>
                 <h5>2º Suplente: {senadoresEmExercicio['2º Suplente'][id]}</h5>
             </div>

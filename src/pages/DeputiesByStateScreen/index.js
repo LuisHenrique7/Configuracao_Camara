@@ -77,7 +77,13 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
             <div className='divViewChoiceDeputiesByState'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
-                    <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
+                    <Tabs
+                        value={valueVisualization}
+                        onChange={handleChangeValueVisualization}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        centered
+                    >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Pizza" />
                         <Tab label="Gráfico de Sunburst" />
@@ -88,8 +94,10 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
             {valueVisualization === 0 && (
                 <div>
                     <div className="headerGraficBallsDeputiesByState">
-                        <h2>Estado</h2>
-                        <h2>Deputados eleitos</h2>
+                        <div style={{width: '90%', display:'flex', justifyContent: 'space-around', marginLeft: '-30px'}}>
+                            <h2>Estado</h2>
+                            <h2>Deputados eleitos</h2>
+                        </div>
                     </div>
                     <div className='graficBallsDeputiesByState'>
                         {proporcaoDeputadosPorEstado.states.map((state, i) => (
@@ -128,8 +136,8 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
                             layout = {
                                 {
                                     title: "Percentagem de Deputados eleitos por Estado",
-                                    height: 700,
-                                    width: 700,
+                                    height: 1200,
+                                    width: 1200,
                                     margin: {"t": 50, "b": 50, "l": 50, "r": 50},
                                     showlegend: false,
                                 }

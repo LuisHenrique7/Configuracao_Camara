@@ -21,12 +21,10 @@ import { mesaDiretoraCamara } from './data/mesaDiretoraCamara';
 import { mesaDiretoraSenado } from './data/mesaDiretoraSenado';
 
 // pages
-import TesteGraficos from './pages/TesteGraficos';
 import MainScreen from './pages/MainScreen';
 import DeputiesByStateScreen from './pages/DeputiesByStateScreen';
 import DeputiesByPartyScreen from './pages/DeputiesByPartyScreen';
 import ComparisonSetupDeputiesScreen from './pages/ComparisonSetupDeputiesScreen';
-import Drawer from './components/Drawer';
 import DeputiesListScreen from './pages/DeputiesListScreen';
 import DeputiesScreen from './pages/DeputiesScreen';
 import SenatorsListScreen from './pages/SenatorsListScreen';
@@ -34,8 +32,8 @@ import MyDrawer from './components/MyDrawer';
 import BoardDirectorsChamberScreen from './pages/BoardDirectorsChamberScreen';
 import SenatorsByPartyScreen from './pages/SenatorsByPartyScreen';
 import BoardDirectorsSenateScreen from './pages/BoardDirectorsSenateScreen';
-import Example from './pages/Example';
 import SenatorScreen from './pages/SenatorScreen';
+import SenatorsByStateScreen from './pages/SenatorsByStateScreen';
 
 
 
@@ -71,6 +69,7 @@ function App() {
             <Route path="deputadosPorPartido" element={
               <DeputiesByPartyScreen
                 deputadosPorPartido={deputadosPorPartido}
+                deputadosEmExercicio={deputadosEmExercicio}
               />}
             />
             <Route path="ComparisonSetupDeputies" element={
@@ -88,6 +87,11 @@ function App() {
                 mesaDiretoraSenado={mesaDiretoraSenado}
               />}
             />
+            <Route path="senadoresPorEstado" element={
+              <SenatorsByStateScreen
+                senatorsData={senadoresEmExercicio}
+              />}
+            />
             <Route path="senadoresPorPartido" element={
               <SenatorsByPartyScreen
                 senatorsData={senadoresEmExercicio}
@@ -96,11 +100,6 @@ function App() {
             <Route path="listaSenadores/senador/:id" element={
               <SenatorScreen
                 senadoresEmExercicio={senadoresEmExercicio}
-              />}
-            />
-            <Route path="exemplo" element={
-              <Example
-                
               />}
             />
           </Routes>

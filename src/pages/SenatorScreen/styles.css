@@ -54,6 +54,22 @@
     font-weight: bold;
 }
 
+.divPhonesSenatorScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+.divPhonesSenatorScreen h4 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 .divDateInfoSenatorScreen {
     width: 90%;
     display: flex;

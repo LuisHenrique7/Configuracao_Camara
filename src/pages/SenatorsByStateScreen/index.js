@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+
 import Plot from 'react-plotly.js';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -9,7 +10,7 @@ import "./styles.css";
 
 import Ball from '../../components/Ball';
 
-const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) => {
+const SenatorsByStateScreen = ({ senatorsData }) => {
     const [valueVisualization, setValueVisualization] = useState(0);
     const handleChangeValueVisualization = (event, newValueVisualization) => {
         setValueVisualization(newValueVisualization);
@@ -19,50 +20,42 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
         return array.indexOf(value) === index;
     };
 
-    const partyList = [];
-    const namesList = [];
-
-    for (var i = 0; i < Object.keys(deputadosEmExercicio.siglaPartido).length; ++i) {
-        partyList.push(deputadosEmExercicio.siglaPartido[i]);
-        namesList.push(deputadosEmExercicio.nome[i]);
+    const stateList = []
+    for (var i = 0; i < Object.keys(senatorsData.UfMandatoParlamentar).length; ++i) {
+        stateList.push(senatorsData.UfMandatoParlamentar[i])
     };
 
-
-    const parties = partyList.filter(onlyUnique);
-    const partiesCount = [];
+    const states = stateList.filter(onlyUnique);
+    console.log(states);
     
-    for (var i = 0; i < parties.length; ++i) {
-        partiesCount.push(partyList.filter(x => x==parties[i]).length);
+    const statesCount = [];
+    for (var i = 0; i < states.length; ++i) {
+        statesCount.push(stateList.filter(x => x==states[i]).length);
     };
+    console.log(statesCount);
 
-    const labelsGraficSunburst = [].concat(parties);
+    const labelsGraficSunburst = [].concat(states);
     const parentsGraficSunburst = [];
-    const valuesGraficSunburst = [].concat(partiesCount);
+    const valuesGraficSunburst = [].concat(statesCount);
 
-    for (var s = 0; s < parties.length; ++s) {
+    for (var s = 0; s < states.length; ++s) {
         parentsGraficSunburst.push("");
     };
 
-    for (var s = 0; s < Object.keys(deputadosEmExercicio.nome).length; ++s) {
-        let name = deputadosEmExercicio.nome[s];
-        let party = deputadosEmExercicio.siglaPartido[s];
+    for (var s = 0; s < Object.keys(senatorsData.NomeParlamentar).length; ++s) {
+        let name = senatorsData.NomeParlamentar[s];
+        let state = senatorsData.UfMandatoParlamentar[s];
         labelsGraficSunburst.push(name);
-        parentsGraficSunburst.push(party);
+        parentsGraficSunburst.push(state);
         valuesGraficSunburst.push(1);
     };
 
-    console.log("-----------------------------------------")
-    console.log(labelsGraficSunburst);
-    console.log(parentsGraficSunburst);
-    console.log(valuesGraficSunburst);
-    console.log("-----------------------------------------")
-
     return (
-        <div className='containerDepByPartyScreen'>
-            <div className='headerDeputiesByParty'>
-                <h1>Deputados por Partido</h1>
+        <div className='containerSenatorsByState'>
+            <div className='headerSenatorsByState'>
+                <h1>Senadores por Estado</h1>
             </div>
-            <div className='divViewChoiceDeputiesByParty'>
+            <div className='divViewChoiceSenatorsByState'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
                     <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
@@ -77,23 +70,23 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
             {valueVisualization === 0 && (
                 <div>
                     <div>
-                        <div className="headerGraficBallsDeputiesByParty">
-                            <h2>Partido</h2>
-                            <h2>Deputados eleitos</h2>
+                        <div className="headerGraficBallsSenatorsByState">
+                            <h2>Estado</h2>
+                            <h2>Senadores eleitos</h2>
                         </div>
                     </div>
-                    <div className='graficBallsDeputiesByParty'>
-                        {parties.map((party, i) => (
-                            <div className="partyDeputiesByPartyScreen">
-                                <div className='partyNameDeputiesByPartyScreen'>
+                    <div className='graficBallsSenatorsByState'>
+                        {states.map((party, i) => (
+                            <div className="partySenatorsByStateScreen">
+                                <div className='partyNameSenatorsByStateScreen'>
                                     <h2>{party}</h2>
                                 </div>
-                                <div className='divBallsDeputiesByParty'>
+                                <div className='divBallsSenatorsByState'>
                                     <Ball
-                                        amount={partiesCount[i]}
+                                        amount={statesCount[i]}
                                         color='rgba(55,128,191,0.6)'
                                     />
-                                    <p>{partiesCount[i]}</p>
+                                    <p>{statesCount[i]}</p>
                                 </div>
                             </div>
                         ))}
@@ -108,8 +101,8 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
                             data = {[
                                 {
                                     type: "pie",
-                                    values: partiesCount,
-                                    labels: parties,
+                                    values: statesCount,
+                                    labels: states,
                                     textinfo: "label+percent",
                                     textposition: "inside",
                                     automargin: true,
@@ -165,31 +158,32 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
             )}
 
             {valueVisualization === 3 && (
-                <div className="graficDeputiesByParty">
-                    <div>
-                        <Plot
-                            data = {[
-                                {
-                                    type: "bar",
-                                    x: deputadosPorPartido.deputies2022,
-                                    y: deputadosPorPartido.parties,
-                                    orientation: "h",
-                                }
-                            ]}
-                            layout = {
-                                {
-                                    title: "Quantidades de Deputados eleitos por Partido",
-                                    showgrid: true,
-                                    margin: {"t": 50, "b": 50, "l": 110, "r": 10},
-                                    showticklabels: true
-                                }
-                            } 
-                        />
-                    </div>
+                <div className="graficSenatorsByState">
+                    <Plot
+                        data = {[
+                            {
+                                type: "bar",
+                                x: statesCount,
+                                y: states,
+                                orientation: "h",
+                            }
+                        ]}
+                        layout = {
+                            {
+                                title: "Quantidades de Deputados eleitos por Partido",
+                                showgrid: true,
+                                height: 700,
+                                width: 700,
+                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                showticklabels: true
+                            }
+                        } 
+                    />
                 </div>
             )}
         </div>
+        
     )
 }
 
-export default DeputiesByPartyScreen
+export default SenatorsByStateScreen

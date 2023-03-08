@@ -22,8 +22,7 @@ import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 const pages = {
-  '/': "Tela Inicial",
-  'exemplo': "Exemplo"
+  '/': "Tela Inicial"
 };
 const pagesDeputies = {
   'listaDeputados': "Lista de Deputados",
@@ -35,11 +34,16 @@ const pagesDeputies = {
 const pagesSenators = {
   'listaSenadores': "Lista de Senadores",
   'mesaDiretoraSenado': "Mesa Diretora do Senado",
+  'senadoresPorEstado': "Senadores por Estado",
   'senadoresPorPartido': "Senadores por Partido",
 };
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
+    // display: 'flex',
+    // flexDirection: 'column',
+    // height: '100%',
+    // width: '100%',
     flexGrow: 1,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -110,7 +114,7 @@ export default function PersistentDrawerLeft({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Prometeu - Configuração do Congresso
+            Prometeu: Configuração do Congresso
           </Typography>
         </Toolbar>
       </AppBar>
@@ -134,8 +138,8 @@ export default function PersistentDrawerLeft({ children }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {Object.keys(pages).map((key) => (
-            <Link to={key} >
+          {Object.keys(pages).map((key, i) => (
+            <Link to={key} key={i}>
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemText primary={pages[key]} />
@@ -146,8 +150,8 @@ export default function PersistentDrawerLeft({ children }) {
         </List>
         <Divider />
         <List>
-          {Object.keys(pagesDeputies).map((key) => (
-            <Link to={key} >
+          {Object.keys(pagesDeputies).map((key, i) => (
+            <Link to={key} key={i}>
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemText primary={pagesDeputies[key]} />
@@ -158,8 +162,8 @@ export default function PersistentDrawerLeft({ children }) {
         </List>
         <Divider />
         <List>
-          {Object.keys(pagesSenators).map((key) => (
-            <Link to={key} >
+          {Object.keys(pagesSenators).map((key, i) => (
+            <Link to={key} key={i}>
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemText primary={pagesSenators[key]} />
