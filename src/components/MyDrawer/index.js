@@ -44,6 +44,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     // flexDirection: 'column',
     // height: '100%',
     // width: '100%',
+    minHeight: `calc(${window.innerHeight}px - 65px)`,
     flexGrow: 1,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -100,7 +101,7 @@ export default function PersistentDrawerLeft({ children }) {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
