@@ -35,7 +35,7 @@ const SenatorScreen = ({ senadoresEmExercicio }) => {
                 <div style={{border: '1px solid', padding: '20px', borderRadius: '10px'}}>
                     <h4>Telefones:</h4>
                     {senadoresEmExercicio.NumeroTelefone[id].map((tel, i) => (
-                        <h5>Telefone {i+1}: (61) {tel}</h5>
+                        <h5 key={i}>Telefone {i+1}: (61) {tel}</h5>
                     ))}
                 </div>
             </div>

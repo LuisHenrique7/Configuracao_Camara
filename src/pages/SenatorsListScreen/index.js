@@ -29,26 +29,27 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
     const [filterScreen, setFilterScreen] = useState(false);
     const [nameForSearch, setNameForSearch] = useState('');
     const [stateFilter, setStateFilter] = useState('');
+    const [useFilter, setUseFilter] = useState(false);
 
     const handleChangeTextField = (e) => {
         setNameForSearch(e.target.value);
     };
 
     const searchSenatorByName = () => {
-        // setUseFilter(true);
         const indexSenatorsFound = Object.keys(senadoresEmExercicio.NomeParlamentar).filter((_, index) => {
                 return senadoresEmExercicio.NomeParlamentar[index].toLowerCase().includes(nameForSearch.toLowerCase());
         });
         setItems(indexSenatorsFound);
         setNameForSearch('');
+        setUseFilter(true);
         setFilterScreen(false);
     };
 
     const cleanFilters = () => {
         setItems(Object.keys(senadoresEmExercicio.NomeParlamentar));
         setItemOffset(0);
+        setUseFilter(false);
         setFilterScreen(false);
-        // setUseFilter(false);
     };
 
     const handleChangeStateFilter = (event) => {
@@ -56,12 +57,29 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
       };
 
     const searchSenatorByState = () => {
-        // setUseFilter(true);
         const indexSenatorsFound = Object.keys(senadoresEmExercicio.UfMandatoParlamentar).filter((_, index) => {
                 return senadoresEmExercicio.UfMandatoParlamentar[index].toLowerCase().includes(stateFilter.toLowerCase());
         });
         setItems(indexSenatorsFound);
         setStateFilter('');
+        setUseFilter(true);
+        setFilterScreen(false);
+    };
+
+    const searchSenatorByNameAndState = () => {
+        const indexSenatorsFound = Object.keys(senadoresEmExercicio.UfMandatoParlamentar).filter((_, index) => {
+            if (senadoresEmExercicio.NomeParlamentar[index].toLowerCase().includes(nameForSearch.toLowerCase()) &&
+                senadoresEmExercicio.UfMandatoParlamentar[index].toLowerCase().includes(stateFilter.toLowerCase())
+            ) {
+
+                return true;
+
+            } else {return false;}
+        });
+        setItems(indexSenatorsFound);
+        setNameForSearch('');
+        setStateFilter('');
+        setUseFilter(true);
         setFilterScreen(false);
     };
 
@@ -97,7 +115,7 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
             </div>
 
             <div className='divChangeFilterListSenators'>
-                {!filterScreen && (<Button variant="outlined" onClick={() => setFilterScreen(true)}>Buscar / Filtrar Deputados</Button>)}
+                {!filterScreen && (<Button variant="outlined" onClick={() => setFilterScreen(true)}>Buscar / Filtrar Senadores</Button>)}
                 {filterScreen && (
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
                         <Button
@@ -109,7 +127,13 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
                         >
                             Voltar para lista
                         </Button>
-                        <Button variant="outlined" onClick={cleanFilters}>Limpar Filtro</Button>
+                        <Button
+                            variant="outlined"
+                            onClick={cleanFilters}
+                            disabled={!useFilter}
+                        >
+                            Limpar Filtro
+                        </Button>
                     </div>
                 )}
             </div>
@@ -119,7 +143,7 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                         <TextField
                             id="outlined-basic"
-                            label="Nome do Deputado"
+                            label="Nome do Senador"
                             variant="outlined"
                             value={nameForSearch}
                             onChange={handleChangeTextField}
@@ -128,6 +152,7 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
                             variant="contained"
                             onClick={searchSenatorByName}
                             style={{marginLeft: '20px'}}
+                            disabled={nameForSearch === '' ? true : false}
                         >
                                 Buscar
                         </Button>  
@@ -150,9 +175,6 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
                                 {states.map((s, i) => (
                                     <MenuItem value={s} key={i}>{s}</MenuItem>
                                 ))}
-                                {/* <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem> */}
                             </Select>
                         </FormControl>
                         </div>
@@ -160,9 +182,19 @@ const SenatorsListScreen = ({ senadoresEmExercicio }) => {
                             variant="contained"
                             onClick={searchSenatorByState}
                             style={{marginLeft: '20px'}}
+                            disabled={stateFilter === '' ? true : false}
                         >
                                 Filtrar
                         </Button>  
+                    </div>
+                    <div style={{marginTop: '30px'}}>
+                        <Button
+                            onClick={searchSenatorByNameAndState}
+                            variant="contained"
+                            disabled={(nameForSearch !== '' && stateFilter !== '') ? false : true}
+                        >
+                            Filtrar por Nome e Estado
+                        </Button>
                     </div>
                 </div>
             )}
