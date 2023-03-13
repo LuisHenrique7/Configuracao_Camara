@@ -16,6 +16,26 @@
     margin-bottom: 20px;
 }
 
+.divChangeFilterListDeputies {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px 5px;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.divFilterListDeputies {
+    background-color: #FFF;
+    padding: 20px 0px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 .deputiesListItems {
     display: flex;
     flex-direction: column;
@@ -53,7 +73,15 @@
     width: 40%;
     height: 100%;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
     /* background-color: pink */
+}
+
+.deputieInfoDeputiesList h4 {
+    font-weight: bold;
 }
 
 .containerButtonsPaginationDeputiesList {
