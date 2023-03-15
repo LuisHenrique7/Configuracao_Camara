@@ -30,6 +30,7 @@ const pagesDeputies = {
   'deputadosPorEstado': "Deputados por Estado",
   'deputadosPorPartido': "Deputados por Partido",
   'ComparisonSetupDeputies': "Configuração da Câmara nas Eleições",
+  'frentesDeputados': "Frentes Parlamentares dos Deputados"
 };
 const pagesSenators = {
   'listaSenadores': "Lista de Senadores",

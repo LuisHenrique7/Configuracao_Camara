@@ -19,6 +19,8 @@ import { deputadosEmExercicio } from './data/deputadosEmExercicio';
 import { senadoresEmExercicio } from './data/senadoresEmExercicio';
 import { mesaDiretoraCamara } from './data/mesaDiretoraCamara';
 import { mesaDiretoraSenado } from './data/mesaDiretoraSenado';
+import { frentesDeputados } from './data/frentesDeputados';
+import { deputadosMembrosFrentes } from './data/deputadosMembrosFrentes';
 
 // pages
 import MainScreen from './pages/MainScreen';
@@ -34,6 +36,8 @@ import SenatorsByPartyScreen from './pages/SenatorsByPartyScreen';
 import BoardDirectorsSenateScreen from './pages/BoardDirectorsSenateScreen';
 import SenatorScreen from './pages/SenatorScreen';
 import SenatorsByStateScreen from './pages/SenatorsByStateScreen';
+import GroupDeputiesScreen from './pages/GroupDeputiesScreen';
+import ParliamentaryGroupScreen from './pages/ParliamentaryGroupScreen';
 
 
 
@@ -75,6 +79,17 @@ function App() {
             <Route path="ComparisonSetupDeputies" element={
               <ComparisonSetupDeputiesScreen
                 deputadosPorPartido={deputadosPorPartido}
+              />}
+            />
+            <Route path="frentesDeputados" element={
+              <GroupDeputiesScreen
+                frentesDeputados={frentesDeputados}
+              />}
+            />
+            <Route path="frentesDeputados/frente/:id" element={
+              <ParliamentaryGroupScreen
+                deputadosMembrosFrentes={deputadosMembrosFrentes}
+                frentesDeputados={frentesDeputados}
               />}
             />
             <Route path="listaSenadores" element={

@@ -7,6 +7,10 @@
     background-color: #FAA733;
 }
 
+.container-main p {
+    font-size: large;
+}
+
 .headerMainScreen {
     background-color: silver;
     width: 100%;
@@ -20,4 +24,43 @@
     border-radius: 10px;
     text-align: justify;
     padding: 20px;
+}
+
+.divAboutMainScreen h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.divAboutMainScreen div {
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.divDataSourceMainScreen {
+    background-color: #FFF;
+    width: 60%;
+    border-radius: 10px;
+    text-align: justify;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+.divDataSourceMainScreen h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.divDataSourceMainScreen div {
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
 }
