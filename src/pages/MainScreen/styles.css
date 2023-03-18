@@ -64,3 +64,64 @@
     justify-content: center;
     margin: 10px auto;
 }
+
+.divExamplesMainScreen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.divGraficMainScreen{
+    border: 1px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: #2f7958;
+    margin: 20px 0px;
+}
+
+.headerGraficBallsMainScreen{
+    /* background-color: coral; */
+    background-color: silver;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px;
+    padding: 5px 0px;
+}
+.partyNameMainScreen {
+    width: 20%;
+    align-self: center;
+}
+
+.partyMainScreen {
+    display: flex;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-radius: 20px;
+    background-color: #fff;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.graficBallsMainScreen {
+    margin: 10px;
+}
+
+.divBallsMainScreen {
+    justify-content: center;
+    width: 40%;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.ballsMainScreen {
+    align-self: center;
+    justify-self: center;
+    width: 80%;
+    /* margin: 0 auto; */
+    background-color: #fff;
+    border-radius: 12px;
+}
