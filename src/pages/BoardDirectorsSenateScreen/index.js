@@ -2,8 +2,8 @@ import React from 'react';
 import './styles.css';
 
 const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
-    console.log("Mesa diretora senado")
-    console.log(Object.keys(mesaDiretoraSenado.NomeParlamentar).length)
+    // console.log("Mesa diretora senado")
+    // console.log(Object.keys(mesaDiretoraSenado.NomeParlamentar).length)
 
     const presidents = [];
     const secretaries = [];
@@ -47,8 +47,8 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
         }
     };
 
-    console.log(presidents)
-    console.log(presidents[0].name.replace('Senador ', ''))
+    // console.log(presidents)
+    // console.log(presidents[0].name.replace('Senador ', ''))
 
     return (
         <div className='containerBoardDirectorsSenateScreen'>
@@ -57,7 +57,10 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
             </div>
             <h2 className='subHeaderBoardDirectorsSenateScreen'>Presidente</h2>
             <div className="presidentAndViceDivBoardDirectorsSenateScreen">
-                <div className='boxDivBoardDirectorsSenateScreen'>
+                <div
+                    className='boxDivBoardDirectorsSenateScreen'
+                    style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                >
                     <div className='senatorPictureBoardDirectorsChamberScreen'>
                         <img src={require(`../../data/pictures/senatorsPictures/${presidents[0].name.replace('Senador ', '')}.jpg`)} />
                     </div>
@@ -70,10 +73,17 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                 </div>
             </div>
             <h2 className='subHeaderBoardDirectorsSenateScreen'>Vice-Presidentes</h2>
-            <div className="presidentAndViceDivBoardDirectorsSenateScreen">
-                {presidents.map((sen) => {
+            <div
+                className="presidentAndViceDivBoardDirectorsSenateScreen"
+                style={window.innerWidth < 710 ? {flexDirection: 'column', alignItems: 'center'} : {}}
+            >
+                {presidents.map((sen, i) => {
                     if (sen.title !== "PRESIDENTE") return (
-                        <div className='boxDivBoardDirectorsSenateScreen'>
+                        <div
+                            className='boxDivBoardDirectorsSenateScreen'
+                            style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                            key={i}
+                        >
                             <div className='senatorPictureBoardDirectorsChamberScreen'>
                                 <img src={require(`../../data/pictures/senatorsPictures/${sen.name.replace('Senador ', '')}.jpg`)} />
                             </div>
@@ -89,10 +99,17 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
             </div>
             <div>
                 <h2 className='subHeaderBoardDirectorsSenateScreen'>Secretários</h2>
-                <div className="boxDivSecretariesBoardDirectorsSenateScreen">
+                <div
+                    className="boxDivSecretariesBoardDirectorsSenateScreen"
+                    style={window.innerWidth < 710 ? {flexDirection: 'column', alignItems: 'center'} : {}}
+                >
                     {secretaries.map((sen, i) => {
                         if (i <= 1) return (
-                            <div className='boxDivBoardDirectorsSenateScreen'>
+                            <div
+                                className='boxDivBoardDirectorsSenateScreen'
+                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                key={i}
+                            >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
                                     <img src={require(`../../data/pictures/senatorsPictures/${sen.name.replace('Senador ', '')}.jpg`)} />
                                 </div>
@@ -106,10 +123,17 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         )}
                     )}
                 </div>
-                <div className="boxDivSecretariesBoardDirectorsSenateScreen">
+                <div
+                    className="boxDivSecretariesBoardDirectorsSenateScreen"
+                    style={window.innerWidth < 710 ? {flexDirection: 'column', alignItems: 'center'} : {}}
+                >
                     {secretaries.map((sen, i) => {
                         if (i > 1) return (
-                            <div className='boxDivBoardDirectorsSenateScreen'>
+                            <div
+                                className='boxDivBoardDirectorsSenateScreen'
+                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                key={i}
+                            >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
                                     <img src={require(`../../data/pictures/senatorsPictures/${sen.name.replace('Senador ', '')}.jpg`)} />
                                 </div>
@@ -126,10 +150,17 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
             </div>
             <div>
                 <h2 className='subHeaderBoardDirectorsSenateScreen'>Suplentes de Secretários</h2>
-                <div className="boxDivSecretariesBoardDirectorsSenateScreen">
+                <div
+                    className="boxDivSecretariesBoardDirectorsSenateScreen"
+                    style={window.innerWidth < 710 ? {flexDirection: 'column', alignItems: 'center'} : {}}
+                >
                     {substitutes.map((sen, i) => {
                         if (i <= 1) return (
-                            <div className='boxDivBoardDirectorsSenateScreen'>
+                            <div
+                                className='boxDivBoardDirectorsSenateScreen'
+                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                key={i}
+                            >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
                                     {/* <img src={require(`../../data/pictures/senatorsPictures/${sen.name.replace('Senador ', '')}.jpg`)} /> */}
                                 </div>
@@ -143,10 +174,17 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         )}
                     )}
                 </div>
-                <div className="boxDivSecretariesBoardDirectorsSenateScreen">
+                <div
+                    className="boxDivSecretariesBoardDirectorsSenateScreen"
+                    style={window.innerWidth < 710 ? {flexDirection: 'column', alignItems: 'center'} : {}}
+                >
                     {substitutes.map((sen, i) => {
                         if (i > 1) return (
-                            <div className='boxDivBoardDirectorsSenateScreen'>
+                            <div
+                                className='boxDivBoardDirectorsSenateScreen'
+                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                key={i}
+                            >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
                                     {/* <img src={require(`../../data/pictures/senatorsPictures/${sen.name.replace('Senador ', '')}.jpg`)} /> */}
                                 </div>

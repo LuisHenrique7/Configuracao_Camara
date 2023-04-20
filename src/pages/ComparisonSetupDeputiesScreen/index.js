@@ -23,7 +23,12 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
             <div className='divViewChoiceComparisonSetupDeputies'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
-                    <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
+                    <Tabs
+                        value={valueVisualization}
+                        onChange={handleChangeValueVisualization}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                    >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Barras" />
                     </Tabs>
@@ -32,13 +37,13 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
             {valueVisualization === 0 && (
                 <div>
                     <div className="headerGraficBallsComparisonSetupDep">
-                        <h2>Partido</h2>
-                        <h2>Deputados eleitos em 2018</h2>
-                        <h2>Deputados eleitos em 2022</h2>
+                        <h2 style={window.innerWidth < 710 ? {fontSize: 'larger'} : {}}>Partido</h2>
+                        <h2 style={window.innerWidth < 710 ? {fontSize: 'larger'} : {}}>Deputados eleitos em 2018</h2>
+                        <h2 style={window.innerWidth < 710 ? {fontSize: 'larger'} : {}}>Deputados eleitos em 2022</h2>
                     </div>
                     <div className='graficBallsComparisonSetupDep'>
                         {deputadosPorPartido.parties.map((party, i) => (
-                            <div className="partyComparisonSetupDeputiesScreen">
+                            <div className="partyComparisonSetupDeputiesScreen" key={i}>
                                 <div className='partyNameComparisonSetupDeputiesScreen'>
                                     <h2>{party}</h2>
                                     <p>Saldo: {deputadosPorPartido.deputies2022[i] - deputadosPorPartido.deputies2018[i]}</p>
@@ -93,7 +98,7 @@ const ComparisonSetupDeputiesScreen = ({ deputadosPorPartido }) => {
                             {
                                 title: "Quantidades de Deputados eleitos por Partido",
                                 showgrid: true,
-                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                 showticklabels: true,
                                 height: 1000,
                                 barmode: 'group',

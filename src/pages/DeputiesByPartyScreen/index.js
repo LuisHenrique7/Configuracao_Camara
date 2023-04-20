@@ -51,11 +51,11 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
         valuesGraficSunburst.push(1);
     };
 
-    console.log("-----------------------------------------")
-    console.log(labelsGraficSunburst);
-    console.log(parentsGraficSunburst);
-    console.log(valuesGraficSunburst);
-    console.log("-----------------------------------------")
+    // console.log("-----------------------------------------")
+    // console.log(labelsGraficSunburst);
+    // console.log(parentsGraficSunburst);
+    // console.log(valuesGraficSunburst);
+    // console.log("-----------------------------------------")
 
     return (
         <div className='containerDepByPartyScreen'>
@@ -65,7 +65,12 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
             <div className='divViewChoiceDeputiesByParty'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
-                    <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
+                    <Tabs
+                        value={valueVisualization}
+                        onChange={handleChangeValueVisualization}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                    >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Pizza" />
                         <Tab label="Gráfico de Sunburst" />
@@ -84,7 +89,7 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
                     </div>
                     <div className='graficBallsDeputiesByParty'>
                         {parties.map((party, i) => (
-                            <div className="partyDeputiesByPartyScreen">
+                            <div className="partyDeputiesByPartyScreen" key={i}>
                                 <div className='partyNameDeputiesByPartyScreen'>
                                     <h2>{party}</h2>
                                 </div>
@@ -180,7 +185,7 @@ const DeputiesByPartyScreen = ({ deputadosPorPartido, deputadosEmExercicio }) =>
                                 {
                                     title: "Quantidades de Deputados eleitos por Partido",
                                     showgrid: true,
-                                    margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                    margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                     showticklabels: true
                                 }
                             } 

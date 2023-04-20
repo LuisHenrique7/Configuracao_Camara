@@ -76,7 +76,7 @@ function App() {
                 deputadosEmExercicio={deputadosEmExercicio}
               />}
             />
-            <Route path="ComparisonSetupDeputies" element={
+            <Route path="configuracaoCamara" element={
               <ComparisonSetupDeputiesScreen
                 deputadosPorPartido={deputadosPorPartido}
               />}

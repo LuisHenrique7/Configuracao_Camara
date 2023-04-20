@@ -26,13 +26,13 @@ const SenatorsByStateScreen = ({ senatorsData }) => {
     };
 
     const states = stateList.filter(onlyUnique);
-    console.log(states);
+    // console.log(states);
     
     const statesCount = [];
     for (var i = 0; i < states.length; ++i) {
-        statesCount.push(stateList.filter(x => x==states[i]).length);
+        statesCount.push(stateList.filter(x => x===states[i]).length);
     };
-    console.log(statesCount);
+    // console.log(statesCount);
 
     const labelsGraficSunburst = [].concat(states);
     const parentsGraficSunburst = [];
@@ -58,7 +58,12 @@ const SenatorsByStateScreen = ({ senatorsData }) => {
             <div className='divViewChoiceSenatorsByState'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
-                    <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
+                    <Tabs
+                        value={valueVisualization}
+                        onChange={handleChangeValueVisualization}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                    >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Pizza" />
                         <Tab label="Gráfico de Sunburst" />
@@ -77,7 +82,7 @@ const SenatorsByStateScreen = ({ senatorsData }) => {
                     </div>
                     <div className='graficBallsSenatorsByState'>
                         {states.map((party, i) => (
-                            <div className="partySenatorsByStateScreen">
+                            <div className="partySenatorsByStateScreen" key={i}>
                                 <div className='partyNameSenatorsByStateScreen'>
                                     <h2>{party}</h2>
                                 </div>
@@ -174,7 +179,7 @@ const SenatorsByStateScreen = ({ senatorsData }) => {
                                 showgrid: true,
                                 height: 700,
                                 width: 700,
-                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                 showticklabels: true
                             }
                         } 

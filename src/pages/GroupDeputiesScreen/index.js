@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 const GroupDeputiesScreen = ({ frentesDeputados }) => {
-    console.log(Object.keys(frentesDeputados.id).length);
+    // console.log(Object.keys(frentesDeputados.id).length);
 
     return (
         <div className='containerGroupDeputiesScreen'>

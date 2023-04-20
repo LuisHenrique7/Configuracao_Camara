@@ -81,7 +81,10 @@ const ParliamentaryGroupScreen = ({ deputadosMembrosFrentes, frentesDeputados })
       </div>
 
       <h2 className='subHeaderParliamentaryGroupScreen'>Coordenador(a)</h2>
-      <div className='divMembersParliamentaryGroupScreen'>
+      <div
+        className='divMembersParliamentaryGroupScreen'
+        style={window.innerWidth < 710 ? {width: '60%'} : {width: '40%'}}
+      >
         <p style={{fontWeight: 'bold', color: '#0095da'}}>Nome: {coordinator['nome']}</p>
         <p>Partido: {coordinator['siglaPartido']}</p>
         <p>UF: {coordinator['siglaUf']}</p>
@@ -91,7 +94,11 @@ const ParliamentaryGroupScreen = ({ deputadosMembrosFrentes, frentesDeputados })
       <div className='divDisplayMembersParliamentaryGroupScreen'>
         {arrayMembers.map((dep, i) => {
           if (dep['nome'] !== null) return (
-          <div className='divMembersParliamentaryGroupScreen' key={i}>
+          <div
+            className='divMembersParliamentaryGroupScreen'
+            style={window.innerWidth < 710 ? {width: '45%'} : {}}
+            key={i}
+          >
             <p style={{fontWeight: 'bold', color: '#0095da'}}>Nome: {dep['nome']}</p>
             <p>Partido: {dep['siglaPartido']}</p>
             <p>UF: {dep['siglaUf']}</p>

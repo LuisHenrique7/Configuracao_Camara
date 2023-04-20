@@ -39,7 +39,7 @@ const MainScreen = () => {
                         </div>
                         <div className='graficBallsMainScreen'>
                             {states.map((state, i) => (
-                                <div className="partyMainScreen">
+                                <div className="partyMainScreen" key={i}>
                                     <div className='partyNameMainScreen'>
                                         <h2>{state}</h2>
                                     </div>
@@ -55,7 +55,7 @@ const MainScreen = () => {
                         </div>
                     </div>
                     <div style={{width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}}>
-                        <h3>A exibição com bolinhas trás uma representação com círculos para demostrar quantidade.</h3>
+                        <h3>A exibição com bolinhas traz uma representação com círculos para demostrar quantidade.</h3>
                     </div>
                 </div>
 

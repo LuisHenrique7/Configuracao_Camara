@@ -15,9 +15,9 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
     const handleChangeValueVisualization = (event, newValueVisualization) => {
         setValueVisualization(newValueVisualization);
     };
-    console.log(senatorsData)
-    console.log(senatorsData.NomeParlamentar)
-    console.log(senatorsData.SiglaPartidoParlamentar)
+    // console.log(senatorsData)
+    // console.log(senatorsData.NomeParlamentar)
+    // console.log(senatorsData.SiglaPartidoParlamentar)
 
     const onlyUnique = (value, index, array) => {
         return array.indexOf(value) === index;
@@ -29,11 +29,11 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
     };
 
     const parties = partyList.filter(onlyUnique);
-    console.log(parties);
+    // console.log(parties);
     
     const partiesCount = [];
     for (var i = 0; i < parties.length; ++i) {
-        partiesCount.push(partyList.filter(x => x==parties[i]).length);
+        partiesCount.push(partyList.filter(x => x===parties[i]).length);
         // partiesCount.push(0);
         
         // for (var e = 0; e < senatorsData.SiglaPartidoParlamentar.length; ++e) {
@@ -42,7 +42,7 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
         //     }
         // };
     };
-    console.log(partiesCount);
+    // console.log(partiesCount);
 
     const labelsGraficSunburst = [].concat(parties);
     const parentsGraficSunburst = [];
@@ -68,7 +68,12 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
             <div className='divViewChoiceSenatorsByParty'>
                 <p>Escolha o tipo de visualização:</p>
                 <Box sx={{bgcolor: 'background.paper', margin: '0px 50px' }}>
-                    <Tabs value={valueVisualization} onChange={handleChangeValueVisualization} centered>
+                    <Tabs
+                        value={valueVisualization}
+                        onChange={handleChangeValueVisualization}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                    >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Pizza" />
                         <Tab label="Gráfico de Sunburst" />
@@ -87,7 +92,7 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
                     </div>
                     <div className='graficBallsSenatorsByParty'>
                         {parties.map((party, i) => (
-                            <div className="partySenatorsByPartyScreen">
+                            <div className="partySenatorsByPartyScreen" key={i}>
                                 <div className='partyNameSenatorsByPartyScreen'>
                                     <h2>{party}</h2>
                                 </div>
@@ -185,7 +190,7 @@ const SenatorsByPartyScreen = ({ senatorsData }) => {
                                     showgrid: true,
                                     width: 700,
                                     height: 700,
-                                    margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                    margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                     showticklabels: true
                                 }
                             } 

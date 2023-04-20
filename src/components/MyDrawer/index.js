@@ -29,7 +29,7 @@ const pagesDeputies = {
   'mesaDiretoraCamara': "Mesa Diretora da Câmara",
   'deputadosPorEstado': "Deputados por Estado",
   'deputadosPorPartido': "Deputados por Partido",
-  'ComparisonSetupDeputies': "Configuração da Câmara nas Eleições",
+  'configuracaoCamara': "Configuração da Câmara nas Eleições",
   'frentesDeputados': "Frentes Parlamentares dos Deputados"
 };
 const pagesSenators = {

@@ -49,15 +49,15 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
     };
 
     
-    console.log(proporcaoDeputadosPorEstado.deputies.reduce((a, b) => {
-        return a + b;
-      }, 0));
-    console.log("-----------------------------------------")
-    console.log(labelsGraficSunburst);
-    console.log(parentsGraficSunburst);
-    console.log(valuesGraficSunburst);
-    console.log("-----------------------------------------")
-    console.log("namesStates", namesStates)
+    // console.log(proporcaoDeputadosPorEstado.deputies.reduce((a, b) => {
+    //     return a + b;
+    //   }, 0));
+    // console.log("-----------------------------------------")
+    // console.log(labelsGraficSunburst);
+    // console.log(parentsGraficSunburst);
+    // console.log(valuesGraficSunburst);
+    // console.log("-----------------------------------------")
+    // console.log("namesStates", namesStates)
 
     // https://flexiple.com/javascript/flatten-array-javascript/
     // let flatArrayNamesByState = [].concat.apply([], namesByState);
@@ -82,7 +82,6 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
                         onChange={handleChangeValueVisualization}
                         variant="scrollable"
                         scrollButtons="auto"
-                        centered
                     >
                         <Tab label="Exibição com Bolinhas" />
                         <Tab label="Gráfico de Pizza" />
@@ -101,7 +100,7 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
                     </div>
                     <div className='graficBallsDeputiesByState'>
                         {proporcaoDeputadosPorEstado.states.map((state, i) => (
-                            <div className="partyDeputiesByStateScreen">
+                            <div className="partyDeputiesByStateScreen" key={i}>
                                 <div className='partyNameDeputiesByStateScreen'>
                                     <h2>{state}</h2>
                                 </div>
@@ -222,7 +221,7 @@ const DeputiesByStateScreen = ({ proporcaoDeputadosPorEstado, deputadosEmExercic
                             {
                                 title: "Quantidades de Deputados eleitos por Estado",
                                 showgrid: true,
-                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                 height: 800
                             }
                         } 
