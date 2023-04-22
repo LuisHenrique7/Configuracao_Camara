@@ -81,7 +81,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
             <div className="presidentAndViceDivBoardDirectorsChamberScreen">
                 <div
                     className='boxDivBoardDirectorsChamberScreen'
-                    style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                    style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                 >
                     <div className='deputiePictureBoardDirectorsChamberScreen'>
                         <img src={require(`../../data/pictures/deputiesPictures/${presidents[presidents.length-1].name}_${presidents[presidents.length-1].id}.jpg`)} />
@@ -103,7 +103,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                     if (dep.title !== "Presidente") return (
                         <div
                             className='boxDivBoardDirectorsChamberScreen'
-                            style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                            style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                             key={i}
                         >
                             <div className='deputiePictureBoardDirectorsChamberScreen'>
@@ -129,7 +129,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                         if (i <= 1) return (
                             <div
                                 className='boxDivBoardDirectorsChamberScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='deputiePictureBoardDirectorsChamberScreen'>
@@ -153,7 +153,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                         if (i > 1) return (
                             <div
                                 className='boxDivBoardDirectorsChamberScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='deputiePictureBoardDirectorsChamberScreen'>
@@ -180,7 +180,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                         if (i <= 1) return (
                             <div
                                 className='boxDivBoardDirectorsChamberScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='deputiePictureBoardDirectorsChamberScreen'>
@@ -204,7 +204,7 @@ const BoardDirectorsChamberScreen = ({ mesaDiretoraCamara }) => {
                         if (i > 1) return (
                             <div
                                 className='boxDivBoardDirectorsChamberScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='deputiePictureBoardDirectorsChamberScreen'>

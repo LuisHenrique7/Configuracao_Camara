@@ -19,9 +19,19 @@ const DeputiesScreen = ({ deputadosEmExercicio }) => {
                     <h4>Nome: {deputadosEmExercicio.nome[id]}</h4>
                     <h5>Sigla do Partido: {deputadosEmExercicio.siglaPartido[id]}</h5>
                     <h5>UF: {deputadosEmExercicio.siglaUf[id]}</h5>
-                    <h5>Email: {deputadosEmExercicio.email[id]}</h5>
+                    {window.innerWidth >= 710 ? 
+                        (<h6>Email: {deputadosEmExercicio.email[id]}</h6>) :
+                        (<div></div>)
+                    }
                 </div>
             </div>
+            {window.innerWidth < 710 ? (
+                <div style={{backgroundColor: '#fff', minWidth: '80%'}}>
+                    <h5>Email:</h5>
+                    <h5>{deputadosEmExercicio.email[id]}</h5>
+                </div>) :
+                (<div></div>)
+            }
         </div>
     )
 }

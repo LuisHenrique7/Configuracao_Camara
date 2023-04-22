@@ -36,7 +36,24 @@ const MainScreen = () => {
                             {display: 'flex', justifyContent:'center', flexWrap: 'wrap', marginBottom: '80px'}
                     }
                 >
-                    <div className='divGraficMainScreen'>
+                    <div
+                        style={
+                            window.innerWidth >= 710 ? 
+                                {
+                                    border: '1px solid',
+                                    borderRadius: '10px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    width: '60%',
+                                    backgroundColor: '#2f7958',
+                                    margin: '20px 0px',
+                                } :
+                                {border: '1px solid', borderRadius: '10px', display: 'flex',
+                                flexDirection: 'column', width: '100%',
+                                backgroundColor: '#2f7958', margin: '20px 0px'
+                                }
+                        }
+                    >
                         <div className="headerGraficBallsMainScreen">
                             <div style={{width: '90%', display:'flex', justifyContent: 'space-around', marginLeft: '-30px'}}>
                                 <h2>Estado</h2>
@@ -182,7 +199,7 @@ const MainScreen = () => {
                             {
                                 title: "Quantidades de Deputados eleitos por Estado",
                                 showgrid: true,
-                                margin: {"t": 50, "b": 50, "l": 110, "r": 10},
+                                margin: {"t": 80, "b": 50, "l": 110, "r": 10},
                                 height: 500,
                                 width: 500
                             }
@@ -195,7 +212,11 @@ const MainScreen = () => {
                                 {marginTop: '10px', width: '100%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}
                         }
                     >
-                        <h3>O tradicional gráfico de barras também está presente entre as opções de visualização.</h3>
+                        <h3>O tradicional gráfico de barras também está presente entre as opções de visualização. 
+                            Você pode clicar sobre o gráfico e selecionar uma área na qual deseja ampliar a visualização. 
+                            Clique 2 vezes sobre o gráfico para retornar a exibição inicial caso tenha aplicado alguma mudança 
+                            como o uso do zoom.
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -238,6 +259,26 @@ const MainScreen = () => {
                     <h4>Dados Abertos - Senado Federal</h4>
                     <p>https://www12.senado.leg.br/dados-abertos</p>
                 </div>
+            </div>
+
+            <div style={
+                {
+                    display: 'flex', flexDirection: 'row',
+                    backgroundColor: 'silver', width: '100%',
+                    marginTop: '60px', padding: '50px 0px',
+                    justifyContent: 'space-between', alignItems: 'center',
+                    
+                }
+            }>
+                <h3 style={{marginLeft: '20px'}}><strong>Universidade Federal de Sergipe</strong></h3>
+                <div style={{margin: '0px 20px'}}>
+                    <h3>
+                    <strong>Autores:</strong>
+                    <h3>Luis Henrique Santos Nascimento</h3>
+                    <h3 style={{marginTop: '10px'}}>Hendrik Teixeira Macedo</h3>
+                    </h3>
+                </div>
+                <h3 style={{marginRight: '20px'}}>2023</h3>
             </div>
         </div>
     )

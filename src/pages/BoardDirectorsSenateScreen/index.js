@@ -59,7 +59,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
             <div className="presidentAndViceDivBoardDirectorsSenateScreen">
                 <div
                     className='boxDivBoardDirectorsSenateScreen'
-                    style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                    style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                 >
                     <div className='senatorPictureBoardDirectorsChamberScreen'>
                         <img src={require(`../../data/pictures/senatorsPictures/${presidents[0].name.replace('Senador ', '')}.jpg`)} />
@@ -81,7 +81,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                     if (sen.title !== "PRESIDENTE") return (
                         <div
                             className='boxDivBoardDirectorsSenateScreen'
-                            style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                            style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                             key={i}
                         >
                             <div className='senatorPictureBoardDirectorsChamberScreen'>
@@ -107,7 +107,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         if (i <= 1) return (
                             <div
                                 className='boxDivBoardDirectorsSenateScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
@@ -131,7 +131,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         if (i > 1) return (
                             <div
                                 className='boxDivBoardDirectorsSenateScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
@@ -158,7 +158,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         if (i <= 1) return (
                             <div
                                 className='boxDivBoardDirectorsSenateScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
@@ -182,7 +182,7 @@ const BoardDirectorsSenateScreen = ({ mesaDiretoraSenado }) => {
                         if (i > 1) return (
                             <div
                                 className='boxDivBoardDirectorsSenateScreen'
-                                style={window.innerWidth < 710 ? {width: '60%'} : {}}
+                                style={window.innerWidth < 710 ? {minWidth: '80%'} : {}}
                                 key={i}
                             >
                                 <div className='senatorPictureBoardDirectorsChamberScreen'>
