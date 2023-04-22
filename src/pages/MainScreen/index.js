@@ -29,7 +29,13 @@ const MainScreen = () => {
                 <h3>Os dados estão exibidos através de diferentes formas de visualização.<br/>Abaixo estão alguns exemplos:</h3>
             </div>
             <div className='divExamplesMainScreen'>
-                <div style={{display: 'flex', justifyContent:'center'}}>
+                <div
+                    style={
+                        window.innerWidth >= 710 ? 
+                            {display: 'flex', justifyContent:'center'} : 
+                            {display: 'flex', justifyContent:'center', flexWrap: 'wrap', marginBottom: '80px'}
+                    }
+                >
                     <div className='divGraficMainScreen'>
                         <div className="headerGraficBallsMainScreen">
                             <div style={{width: '90%', display:'flex', justifyContent: 'space-around', marginLeft: '-30px'}}>
@@ -54,12 +60,24 @@ const MainScreen = () => {
                             ))}
                         </div>
                     </div>
-                    <div style={{width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}}>
+                    <div
+                        style={
+                            window.innerWidth >= 710 ? 
+                                {width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'} : 
+                                {width: '100%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}
+                        }
+                    >
                         <h3>A exibição com bolinhas traz uma representação com círculos para demostrar quantidade.</h3>
                     </div>
                 </div>
 
-                <div style={{display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'}}>
+                <div
+                    style={
+                        window.innerWidth >= 710 ? 
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'} :
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto', flexWrap:'wrap', marginBottom: '80px'}
+                }
+                >
                     <div>
                         <Plot
                             data = {[
@@ -85,12 +103,24 @@ const MainScreen = () => {
                            
                         />
                     </div>
-                    <div style={{width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}}>
+                    <div
+                        style={
+                            window.innerWidth >= 710 ? 
+                                {width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'} :
+                                {marginTop: '10px', width: '100%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}
+                        }
+                    >
                         <h3>O gráfico de Pizza demostra a percentagem de cada "fatia" quanto ao todo.</h3>
                     </div>
                 </div>
 
-                <div style={{display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'}}>
+                <div
+                    style={
+                        window.innerWidth >= 710 ? 
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'} :
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto', flexWrap:'wrap', marginBottom: '80px'}
+                    }
+                >
                     <Plot
                         data = {[
                             {
@@ -119,14 +149,26 @@ const MainScreen = () => {
                         }
                         
                     />
-                    <div style={{width: '30%', textAlign:'left', display: 'flex', justifyContent: 'space-evenly', marginLeft: '10px', flexDirection: 'column'}}>
+                    <div
+                        style={
+                            window.innerWidth >= 710 ? 
+                            {width: '30%', textAlign:'left', display: 'flex', justifyContent: 'space-evenly', marginLeft: '10px', flexDirection: 'column'} :
+                            {marginTop: '10px', width: '100%', textAlign:'left', display: 'flex', justifyContent: 'space-evenly', marginLeft: '10px', flexDirection: 'column'}
+                        }
+                    >
                         <h3>O gráfico de Sunburst é parecido com o de Pizza. Ambos mostram a relação de cada parte em relação ao todo.</h3>
                         <h3>Porém com o gráfico de Sunburst é possível observar os itens internos de cada parte.</h3>
                         <h3>Clique em um dos Estados para ampliar seus itens e observar os deputados daquele Estado. Para retornar a visualização geral clique novamente no estado.</h3>
                     </div>
                 </div>
 
-                <div style={{display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'}}>
+                <div
+                    style={
+                        window.innerWidth >= 710 ? 
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto'} :
+                        {display: 'flex', justifyContent:'center', flexDirection: 'row', margin: '30px auto', flexWrap:'wrap', marginBottom: '80px'}
+                    }
+                >
                     <Plot
                         data = {[
                             {
@@ -146,7 +188,13 @@ const MainScreen = () => {
                             }
                         } 
                     />
-                    <div style={{width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}}>
+                    <div
+                        style={
+                            window.innerWidth >= 710 ?
+                                {width: '30%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'} :
+                                {marginTop: '10px', width: '100%', textAlign:'left', display: 'flex', alignItems: 'center', marginLeft: '10px'}
+                        }
+                    >
                         <h3>O tradicional gráfico de barras também está presente entre as opções de visualização.</h3>
                     </div>
                 </div>

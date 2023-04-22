@@ -43,7 +43,7 @@
 
 .divDataSourceMainScreen {
     background-color: #FFF;
-    width: 60%;
+    min-width: 50%;
     border-radius: 10px;
     text-align: justify;
     padding: 20px;
